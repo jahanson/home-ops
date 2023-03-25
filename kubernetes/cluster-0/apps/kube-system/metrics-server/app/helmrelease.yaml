@@ -15,8 +15,8 @@ spec:
         name: kubernetes-sigs-metrics-server
         namespace: flux-system
       interval: 30m
-  values:
-    metrics:
-      enabled: true
-    serviceMonitor:
-      enabled: true
+  # values:
+  #   metrics:
+  #     enabled: true
+  #   serviceMonitor:
+  #     enabled: true
