@@ -1,0 +1,11 @@
+---
+creation_rules:
+  - path_regex: k8s/(global|clusters)/.*\.sops\.ya?ml
+    encrypted_regex: "^(data|stringData)$"
+    # Personal, Flux
+    age: >-
+      age14qslan3wn5sjtsyc74qt976hm0s0u6zjufnqz822uuwyg08krdaq4vu4yu
+  - path_regex: .*\.sops\.ya?ml
+    # Personal
+    age: >-
+      age14qslan3wn5sjtsyc74qt976hm0s0u6zjufnqz822uuwyg08krdaq4vu4yu
