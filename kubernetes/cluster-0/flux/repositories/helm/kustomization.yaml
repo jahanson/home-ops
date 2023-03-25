@@ -6,4 +6,5 @@ resources:
  - cilium.yaml
  - external-secrets.yaml
  - kubernetes-sigs-metrics-server.yaml
+ - postfinance.yaml
  - rook-ceph.yaml
