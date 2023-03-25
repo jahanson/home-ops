@@ -19,8 +19,8 @@ spec:
     installCRDs: true
     replicaCount: 3
     leaderElect: true
-    grafana:
-      enabled: true
+    # grafana:
+    #   enabled: true
     serviceMonitor:
       enabled: true
       interval: 1m
