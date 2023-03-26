@@ -123,11 +123,11 @@ spec:
               - *host_prometheus
 
       prometheusSpec:
-        alertingEndpoints:
-          - namespace: monitoring
-            name: alertmanager
-            port: 9093
-            apiVersion: v2
+        # alertingEndpoints:
+        #   - namespace: monitoring
+        #     name: alertmanager
+        #     port: 9093
+        #     apiVersion: v2
         additionalScrapeConfigs:
           - job_name: coredns
             scrape_interval: 1m
