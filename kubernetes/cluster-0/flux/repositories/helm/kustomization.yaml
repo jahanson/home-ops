@@ -5,6 +5,7 @@ resources:
  - bjw-s.yaml
  - cilium.yaml
  - external-secrets.yaml
+ - ingress-nginx.yaml
  - jetstack.yaml
  - kubernetes-sigs-metrics-server.yaml
  - postfinance.yaml
