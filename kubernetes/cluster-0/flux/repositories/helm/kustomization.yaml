@@ -8,3 +8,4 @@ resources:
  - kubernetes-sigs-metrics-server.yaml
  - postfinance.yaml
  - rook-ceph.yaml
+ - stakater.yaml
