@@ -86,10 +86,10 @@ controlPlane:
             rotate-server-certificates: "true"
         install:
           extraKernelArgs:
-            - "talos.logging.kernel=udp://vector.jahanson.dev:6050/"
+            - "talos.logging.kernel=udp://vector.hsn.dev:6050/"
         logging:
           destinations:
-            - endpoint: "udp://vector.jahanson.dev:6051/"
+            - endpoint: "udp://vector.hsn.dev:6051/"
               format: json_lines
         network:
           extraHostEntries:
