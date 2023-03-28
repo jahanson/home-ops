@@ -160,7 +160,7 @@ spec:
             honor_timestamps: true
             static_configs:
               - targets:
-                  - nas.jahanson.tech:3911
+                  - nas.jahanson.tech:3903
 
           - job_name: node-exporter
             scrape_interval: 1m
