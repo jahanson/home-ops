@@ -10,6 +10,7 @@ resources:
  - ingress-nginx.yaml
  - jetstack.yaml
  - kubernetes-sigs-metrics-server.yaml
+ - piraeus.yaml
  - postfinance.yaml
  - prometheus-community.yaml
  - rook-ceph.yaml
