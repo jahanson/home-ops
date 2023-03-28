@@ -83,4 +83,4 @@ spec:
         - name: nas-backup
           nfs:
             server: "nas.jahanson.tech"
-            path: /volume1/Backup/Kubernetes
+            path: /volume1/Kubernetes/Backup
