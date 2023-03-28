@@ -123,6 +123,9 @@ spec:
             limits:
               memory: 256Mi
 
+    monitoring:
+      enabled: true
+
     pspEnable: false
 
     resources:
