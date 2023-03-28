@@ -179,7 +179,7 @@ spec:
             honor_timestamps: true
             static_configs:
               - targets:
-                  - gateway.jahanson.tech:9798
+                  - 10.5.0.8:9798
 
         enableAdminAPI: true
         externalLabels:
