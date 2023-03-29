@@ -11,6 +11,7 @@ resources:
  - ingress-nginx.yaml
  - jetstack.yaml
  - kubernetes-sigs-descheduler.yaml
+ - kubernetes-sigs-external-dns.yaml
  - kubernetes-sigs-metrics-server.yaml
  - piraeus.yaml
  - postfinance.yaml
