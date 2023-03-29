@@ -10,6 +10,7 @@ resources:
  - grafana.yaml
  - ingress-nginx.yaml
  - jetstack.yaml
+ - kubernetes-sigs-descheduler.yaml
  - kubernetes-sigs-metrics-server.yaml
  - piraeus.yaml
  - postfinance.yaml
