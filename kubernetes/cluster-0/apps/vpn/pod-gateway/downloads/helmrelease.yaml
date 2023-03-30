@@ -52,6 +52,16 @@ spec:
               secretKeyRef:
                 name: downloads-gateway-vpnconfig
                 key: WIREGUARD_ADDRESSES
+          - name: VPN_ENDPOINT_IP
+            valueFrom:
+              secretKeyRef:
+                name: downloads-gateway-vpnconfig
+                key: VPN_ENDPOINT_IP
+          - name: VPN_ENDPOINT_PORT
+            valueFrom:
+              secretKeyRef:
+                name: downloads-gateway-vpnconfig
+                key: VPN_ENDPOINT_PORT
         securityContext:
           capabilities:
             add:
