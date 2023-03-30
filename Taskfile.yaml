@@ -9,7 +9,7 @@ includes:
   flux: .taskfiles/flux/tasks.yaml
   k8s: .taskfiles/k8s/tasks.yaml
   externalsecrets: .taskfiles/externalsecrets/tasks.yaml
-  # volsync: .taskfiles/volsync/tasks.yaml
+  volsync: .taskfiles/volsync/tasks.yaml
 
 tasks:
   default:
