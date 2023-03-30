@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 45.8.1
+      version: 45.7.1
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
@@ -169,7 +169,6 @@ spec:
             static_configs:
               - targets:
                   - gateway.jahanson.tech:9100 # gateway
-                  - horus.jahanson.tech:9100
                   - nas.jahanson.tech:9100
                   - pikvm.jahanson.tech:9100
 
@@ -179,7 +178,7 @@ spec:
             honor_timestamps: true
             static_configs:
               - targets:
-                  - 10.5.0.8:9798 # speedtest-exporter
+                  - gateway.jahanson.tech:9798 # speedtest-exporter
 
         enableAdminAPI: true
         externalLabels:
