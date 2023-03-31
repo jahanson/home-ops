@@ -13,3 +13,18 @@ spec:
         - feature: usb.device
           matchExpressions:
             vendor: { op: In, value: ["1a6e", "18d1"] }
+---
+apiVersion: nfd.k8s-sigs.io/v1alpha1
+kind: NodeFeatureRule
+metadata:
+  name: nvidia-device
+spec:
+  rules:
+    - # NVIDIA GPU
+      name: nvidia.com/gpu
+      labels:
+        nvidia.com/gpu.present: "true"
+      matchFeatures:
+        - feature: pci.device
+          matchExpressions:
+            vendor: { op: In, value: ["10de"] }
