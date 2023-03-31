@@ -23,7 +23,7 @@ spec:
       feature.node.kubernetes.io/pci-0300_10de.present: "true"
     # Tolerations for the DaemonSet
     tolerations:
-      - key: "kubernetes.io/hostname"
+      - key: "hostname"
         operator: "Equal"
         value: "gandalf"
         effect: "NoSchedule"
