@@ -13,7 +13,7 @@ spec:
       interval: 30m
       sourceRef:
         kind: HelmRepository
-        name: intel
+        name: nvdp
         namespace: flux-system
   values:
     name: nvidia-device-plugin
