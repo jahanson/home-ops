@@ -21,9 +21,4 @@ spec:
     # Node Selector for the DaemonSet
     nodeSelector:
       feature.node.kubernetes.io/pci-0300_10de.present: "true"
-    # Tolerations for the DaemonSet
-    tolerations:
-      - key: "hostname"
-        operator: "Equal"
-        value: "gandalf"
-        effect: "NoSchedule"
+      kubernetes.io/hostname: "glamdring"
