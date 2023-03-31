@@ -21,12 +21,7 @@ spec:
     # Node Selector for the DaemonSet
     nodeSelector:
       feature.node.kubernetes.io/pci-0300_10de.present: "true"
-    # Tolerations for the DaemonSet
-    tolerations:
-      - key: "kubernetes.io/hostname"
-        operator: "Equal"
-        value: "gandalf"
-        effect: "NoSchedule"
+      kubernetes.io/hostname: "glamdring"
     resources:
       requests:
         nvidia.com/gpu: 1
