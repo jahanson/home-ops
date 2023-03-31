@@ -5,9 +5,9 @@ namespace: system
 resources:
   - ./helmrelease.yaml
   - ./runtime-class.yaml
-configMapGenerator:
-  - name: nvdp-configmap
-    files:
-      - config/nvidia.yaml
+# configMapGenerator:
+#   - name: nvdp-configmap
+#     files:
+#       - config/nvidia.yaml
 generatorOptions:
   disableNameSuffixHash: true
