@@ -17,3 +17,7 @@ spec:
         namespace: flux-system
   values:
     name: nvidia-device-plugin
+  
+    # Node Selector for the DaemonSet
+    nodeSelector:
+      feature.node.kubernetes.io/pci-0300_10de.present: "true"

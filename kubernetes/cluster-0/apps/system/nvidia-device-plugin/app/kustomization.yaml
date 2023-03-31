@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: system
 resources:
   - ./helmrelease.yaml
+  - ./runtime-class.yaml
 configMapGenerator:
   - name: nvdp-configmap
     files:
