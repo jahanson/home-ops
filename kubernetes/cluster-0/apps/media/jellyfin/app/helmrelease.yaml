@@ -32,6 +32,8 @@ spec:
 
     env:
       DOTNET_SYSTEM_IO_DISABLEFILELOCKING: "true"
+      NVIDIA_DRIVER_CAPABILITIES: "all"
+      NVIDIA_VISIBLE_DEVICES: "all"
 
     service:
       main:
