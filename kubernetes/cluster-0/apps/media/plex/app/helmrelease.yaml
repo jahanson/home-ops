@@ -71,16 +71,18 @@ spec:
         - 109
         - 65539
 
+    runtimeClassName: nvidia
     nodeSelector:
-      intel.feature.node.kubernetes.io/gpu: "true"
+      feature.node.kubernetes.io/pci-0300_10de.present: "true"
+      kubernetes.io/hostname: "glamdring"
 
     resources:
       requests:
         cpu: 100m
-        gpu.intel.com/i915: 1
+        nvidia.com/gpu: 1
         memory: 4282M
       limits:
-        gpu.intel.com/i915: 1
+        nvidia.com/gpu: 1
         memory: 12G
 
     volumeClaimTemplates:
