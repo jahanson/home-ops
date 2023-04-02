@@ -29,7 +29,18 @@ spec:
         - 44
         - 109
         - 65539
-
+    runtimeClassName: nvidia
+    nodeSelector:
+      feature.node.kubernetes.io/pci-0300_10de.present: "true"
+      kubernetes.io/hostname: "glamdring"
+    resources:
+      requests:
+        cpu: 100m
+        nvidia.com/gpu: 1
+        memory: 1471M
+      limits:
+        nvidia.com/gpu: 1
+        memory: 12G
     env:
       DOTNET_SYSTEM_IO_DISABLEFILELOCKING: "true"
 
