@@ -16,6 +16,8 @@ spec:
         name: nvdp
         namespace: flux-system
   values:
+    config:
+      name: "nvdp-configmap"
     name: nvidia-device-plugin
     runtimeClassName: nvidia
     # Node Selector for the DaemonSet
