@@ -71,11 +71,3 @@ spec:
         enabled: true
         type: emptyDir
 
-    resources:
-      requests:
-        cpu: 100m
-        nvidia.com/gpu: 1
-        memory: 1471M
-      limits:
-        nvidia.com/gpu: 1
-        memory: 12G
