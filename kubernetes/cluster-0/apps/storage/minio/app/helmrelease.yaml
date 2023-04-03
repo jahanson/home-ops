@@ -34,10 +34,10 @@ spec:
       main:
         ports:
           http:
-            port: 9001
+            port: &port-console 9001
           api:
             enabled: true
-            port: &api-port 9000
+            port: &port-api 9000
     args:
       - server
       - /data
@@ -46,8 +46,10 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: "ceph-block"
-        size: 50Gi
+        type: nfs
+        server: "nas.jahanson.tech"
+        path: /volume1/s3m
+        mountPath: /data/
 
     podSecurityContext:
       runAsUser: 0
@@ -56,39 +58,31 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: "nginx"
         annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+          external-dns.home.arpa/enabled: "true"
+          nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+          nginx.ingress.kubernetes.io/proxy-body-size: 100m
+          nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            chunked_transfer_encoding off;
         hosts:
-          - host: &host "minio-s3m.hsn.dev"
+          - host: &host-console "minio-s3m.hsn.dev"
             paths:
               - path: /
                 pathType: Prefix
-        tls:
-          - hosts:
-              - *host
-      s3m:
-        enabled: true
-        annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.hsn.dev
-          nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-        hosts:
+                service:
+                  port: *port-console
           - host: &host-api "s3m.hsn.dev"
             paths:
               - path: /
                 pathType: Prefix
                 service:
-                  port: *api-port
+                  port: *port-api
         tls:
           - hosts:
+              - *host-console
               - *host-api
-    env:
-      MINIO_UPDATE: "off"
-      MINIO_BROWSER_REDIRECT_URL: https://minio-s3m.hsn.dev
-      MINIO_SERVER_URL: https://s3m.hsn.dev
-      MINIO_PROMETHEUS_URL: https://prometheus.hsn.dev
-      MINIO_PROMETHEUS_JOB_ID: minio
-      MINIO_PROMETHEUS_AUTH_TYPE: public
-      MINIO_API_CORS_ALLOW_ORIGIN: https://minio-s3m.hsn.dev,https://s3m.hsn.dev
     envFrom:
       - secretRef:
           name: minio-secret
