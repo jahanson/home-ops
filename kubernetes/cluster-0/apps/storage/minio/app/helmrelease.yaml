@@ -46,9 +46,8 @@ spec:
     persistence:
       config:
         enabled: true
-        type: hostPath
-        hostPath: /tank/minio
-        mountPath: /data
+        storageClass: "ceph-block"
+        size: 50Gi
 
     podSecurityContext:
       runAsUser: 0
