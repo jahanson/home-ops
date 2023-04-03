@@ -25,3 +25,4 @@ resources:
  - stakater.yaml
  - vector.yaml
  - weave-gitops.yaml
+ - zalando-postgres-operator.yaml
