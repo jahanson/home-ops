@@ -60,7 +60,11 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+          nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+          nginx.ingress.kubernetes.io/proxy-body-size: 100m
+          nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            chunked_transfer_encoding off;
         hosts:
           - host: &host-console "minio-s3m.hsn.dev"
             paths:
@@ -68,20 +72,6 @@ spec:
                 pathType: Prefix
                 service:
                   port: *port-console
-        tls:
-          - hosts:
-              - *host-console
-      s3:
-        enabled: true
-        ingressClassName: "nginx"
-        annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.hsn.dev
-          nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
-          nginx.ingress.kubernetes.io/proxy-body-size: 100m
-          nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
-          nginx.ingress.kubernetes.io/configuration-snippet: |
-            chunked_transfer_encoding off;
-        hosts:
           - host: &host-api "s3m.hsn.dev"
             paths:
               - path: /
@@ -90,6 +80,7 @@ spec:
                   port: *port-api
         tls:
           - hosts:
+              - *host-console
               - *host-api
     envFrom:
       - secretRef:
