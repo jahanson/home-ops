@@ -91,6 +91,14 @@ spec:
         tls:
           - hosts:
               - *host-api
+    env:
+      MINIO_UPDATE: "off"
+      MINIO_BROWSER_REDIRECT_URL: https://minio-s3m.hsn.dev
+      MINIO_SERVER_URL: https://s3m.hsn.dev
+      MINIO_PROMETHEUS_URL: https://prometheus.hsn.dev
+      MINIO_PROMETHEUS_JOB_ID: minio
+      MINIO_PROMETHEUS_AUTH_TYPE: public
+      MINIO_API_CORS_ALLOW_ORIGIN: https://minio-s3m.hsn.dev,https://s3m.hsn.dev
     envFrom:
       - secretRef:
           name: minio-secret
