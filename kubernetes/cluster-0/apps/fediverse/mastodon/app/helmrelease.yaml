@@ -28,7 +28,6 @@ spec:
       local_domain: "social.hsn.dev"
       web_domain: null
       singleUserMode: false
-      # max_post_length: 2048
       s3:
         enabled: true
         hostname: "s3m.hsn.dev"
