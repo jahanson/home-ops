@@ -1,0 +1,119 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mastodon
+  namespace: social
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: mastodon
+      version: 4.0.0
+      sourceRef:
+        kind: GitRepository
+        name: mastodon
+        namespace: flux-system
+  values:
+    image: 
+      repository: "ghcr.io/mastodon/mastodon"
+      tag: "v4.1.2"
+    mastodon:
+      createAdmin:
+        enabled: true
+        username: "jahanson"
+        email: "joe@veri.dev"
+      locale: en
+      local_domain: "social.hsn.dev"
+      web_domain: null
+      singleUserMode: false
+      # max_post_length: 2048
+      s3:
+        enabled: true
+        hostname: "s3m.hsn.dev"
+        # -- If you have a caching proxy, enter its base URL here.
+        alias_host: ""
+      # Will apply after first run.
+      # secrets:
+      #   secret_key_base: "${SECRET_MASTODON_SECRET_KEY_BASE}"
+      #   otp_secret: "${SECRET_MASTODON_OTP_SECRET}"
+      #   vapid:
+      #     private_key: "${SECRET_MASTODON_VAPID_PRIVATE_KEY}"
+      #     public_key: "${SECRET_MASTODON_VAPID_PUBLIC_KEY}"
+      smtp:
+        domain: &host-smtp "mg.hsn.dev"
+        from_address: "social.hsn.dev <noreply@mg.hsn.dev>"
+        server: *host-smtp
+        port: 587
+      streaming:
+        port: 4000
+      web:
+        port: 3000
+
+    ingress:
+      enabled: true
+      annotations:
+        external-dns.alpha.kubernetes.io/target: ingress.hsn.dev
+        nginx.ingress.kubernetes.io/proxy-body-size: 40m
+        nginx.org/client-max-body-size: 40m
+      ingressClassName: nginx
+      hosts:
+        - host: &host-nginx social.hsn.dev
+          paths:
+            - path: '/'
+      tls:
+        - hosts:
+            - *host-nginx
+
+    elasticsearch:
+      enabled: false
+
+    postgresql:
+      enabled: false
+      postgresqlHostname: "postgres.database.svc.cluster.local"
+      postgresqlPort: 5432
+      auth:
+        database: mastodon
+        username: mastodon
+        password: ""
+
+    redis:
+      enabled: true
+
+  valuesFrom:
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: S3_BUCKET_NAME
+      targetPath: mastodon.s3.bucket
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: S3_BUCKET_HOST
+      targetPath: mastodon.s3.hostname
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: S3_BUCKET_ENDPOINT
+      targetPath: mastodon.s3.endpoint
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: S3_BUCKET_REGION
+      targetPath: mastodon.s3.region
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: S3_ACCESS_KEY
+      targetPath: mastodon.s3.access_key
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: S3_SECRET_KEY
+      targetPath: mastodon.s3.access_secret
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: SMTP_USER
+      targetPath: mastodon.smtp.login
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: SMTP_PASSWORD
+      targetPath: mastodon.smtp.password
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: REDIS_PASSWORD
+      targetPath: mastodon.redis.auth.password
