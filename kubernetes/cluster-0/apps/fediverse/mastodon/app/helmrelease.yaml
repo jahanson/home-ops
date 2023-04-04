@@ -9,6 +9,7 @@ spec:
   chart:
     spec:
       chart: ./
+      version: 4.0.0
       sourceRef:
         kind: GitRepository
         name: mastodon-chart-repo
