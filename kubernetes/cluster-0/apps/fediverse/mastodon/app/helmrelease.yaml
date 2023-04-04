@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: mastodon
-  namespace: social
+  namespace: fediverse
 spec:
   interval: 15m
   chart:
