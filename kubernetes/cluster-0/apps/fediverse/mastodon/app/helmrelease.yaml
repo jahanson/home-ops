@@ -104,10 +104,10 @@ spec:
       name: mastodon-secret
       valuesKey: SMTP_PASSWORD
       targetPath: mastodon.smtp.password
-    - kind: Secret
-      name: mastodon-secret
-      valuesKey: REDIS_PASSWORD
-      targetPath: mastodon.redis.auth.password
+    # - kind: Secret
+    #   name: mastodon-secret
+    #   valuesKey: REDIS_PASSWORD
+    #   targetPath: mastodon.redis.auth.password
     - kind: Secret
       name: mastodon-secret
       valuesKey: VAPID_PRIVATE_KEY
