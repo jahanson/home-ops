@@ -5,7 +5,7 @@ metadata:
   name: mastodon
   namespace: fediverse
 spec:
-  interval: 15m
+  interval: 5m
   chart:
     spec:
       chart: ./
@@ -13,6 +13,7 @@ spec:
         kind: GitRepository
         name: mastodon
         namespace: flux-system
+      interval: 5m
   values:
     image: 
       repository: "ghcr.io/mastodon/mastodon"
