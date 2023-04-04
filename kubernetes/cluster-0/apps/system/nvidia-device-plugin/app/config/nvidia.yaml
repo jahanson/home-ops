@@ -3,10 +3,6 @@ flags:
   migStrategy: "none"
   failOnInitError: true
   nvidiaDriverRoot: "/"
-  plugin:
-    passDeviceSpecs: true
-    deviceListStrategy: "envvar"
-    deviceIDStrategy: "uuid"
 sharing:
   timeSlicing:
     renameByDefault: false
