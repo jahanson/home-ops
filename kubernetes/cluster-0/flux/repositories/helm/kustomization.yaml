@@ -17,7 +17,6 @@ resources:
  - kubernetes-sigs-metrics-server.yaml
  - kubernetes-sigs-nfd.yaml
  - kyverno.yaml
- - mastodon.yaml
  - nvidia-device-plugin.yaml
  - piraeus.yaml
  - postfinance.yaml
