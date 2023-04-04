@@ -28,6 +28,7 @@ spec:
       local_domain: "social.hsn.dev"
       web_domain: null
       singleUserMode: false
+      # max_post_length: 2048
       s3:
         enabled: true
         hostname: "s3m.hsn.dev"
@@ -101,10 +102,10 @@ spec:
       name: mastodon-secret
       valuesKey: SMTP_PASSWORD
       targetPath: mastodon.smtp.password
-    - kind: Secret
-      name: mastodon-secret
-      valuesKey: REDIS_PASSWORD
-      targetPath: mastodon.redis.auth.password
+    # - kind: Secret
+    #   name: mastodon-secret
+    #   valuesKey: REDIS_PASSWORD
+    #   targetPath: mastodon.redis.auth.password
     - kind: Secret
       name: mastodon-secret
       valuesKey: VAPID_PRIVATE_KEY
