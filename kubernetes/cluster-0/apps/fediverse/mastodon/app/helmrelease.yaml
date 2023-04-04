@@ -109,11 +109,11 @@ spec:
     - kind: Secret
       name: mastodon-secret
       valuesKey: VAPID_PRIVATE_KEY
-      targetPath: mastodon.secrets.private_key
+      targetPath: mastodon.secrets.vapid.private_key
     - kind: Secret
       name: mastodon-secret
       valuesKey: VAPID_PUBLIC_KEY
-      targetPath: mastodon.secrets.public_key
+      targetPath: mastodon.secrets.vapid.public_key
     - kind: Secret
       name: mastodon-secret
       valuesKey: SECRET_KEY_BASE
