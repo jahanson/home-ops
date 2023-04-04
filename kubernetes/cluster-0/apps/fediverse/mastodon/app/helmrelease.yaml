@@ -11,7 +11,7 @@ spec:
       chart: ./
       sourceRef:
         kind: GitRepository
-        name: mastodon
+        name: mastodon-chart-repo
         namespace: flux-system
       interval: 5m
   values:
@@ -33,23 +33,11 @@ spec:
         hostname: "s3m.hsn.dev"
         # -- If you have a caching proxy, enter its base URL here.
         alias_host: ""
-      # Will apply after first run.
-      # secrets:
-      #   secret_key_base: "${SECRET_MASTODON_SECRET_KEY_BASE}"
-      #   otp_secret: "${SECRET_MASTODON_OTP_SECRET}"
-      #   vapid:
-      #     private_key: "${SECRET_MASTODON_VAPID_PRIVATE_KEY}"
-      #     public_key: "${SECRET_MASTODON_VAPID_PUBLIC_KEY}"
       smtp:
         domain: &host-smtp "mg.hsn.dev"
         from_address: "social.hsn.dev <noreply@mg.hsn.dev>"
         server: *host-smtp
         port: 587
-      streaming:
-        port: 4000
-      web:
-        port: 3000
-
     ingress:
       enabled: true
       annotations:
@@ -117,3 +105,19 @@ spec:
       name: mastodon-secret
       valuesKey: REDIS_PASSWORD
       targetPath: mastodon.redis.auth.password
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: VAPID_PRIVATE_KEY
+      targetPath: mastodon.secrets.private_key
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: VAPID_PUBLIC_KEY
+      targetPath: mastodon.secrets.public_key
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: SECRET_KEY_BASE
+      targetPath: mastodon.secrets.secret_key_base
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: OTP_SECRET
+      targetPath: mastodon.secrets.otp_secret
