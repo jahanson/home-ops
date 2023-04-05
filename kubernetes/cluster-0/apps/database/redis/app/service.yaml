@@ -16,6 +16,6 @@ spec:
       protocol: TCP
       targetPort: 6379
   selector:
-    name: redis
-    component: node
-    instance: redis
+    app.kubernetes.io/name: redis
+    app.kubernetes.io/component: node
+    app.kubernetes.io/instance: redis
