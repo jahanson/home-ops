@@ -30,6 +30,8 @@ spec:
       enabled: true
       sentinel: false
     master:
+      podLabels:
+        role: master
       persistence:
         enabled: false
     replica:
