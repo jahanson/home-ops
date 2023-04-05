@@ -26,6 +26,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    externalService:
+      enabled: true
+      annotations:
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+      serviceType: LoadBalancer
+      port: 6379
     auth:
       enabled: false
       sentinel: false
