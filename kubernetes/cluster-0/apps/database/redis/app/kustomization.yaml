@@ -5,6 +5,7 @@ namespace: database
 resources:
   - ./helmrelease.yaml
   - ./service.yaml
+  - ./externalsecret.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: redis
