@@ -36,8 +36,8 @@ spec:
         ports:
           backend:
             port: 3000
-          streaming: 
-            port: 4000
+          # streaming: 
+          #   port: 4000
 
     ingress:
       main:
