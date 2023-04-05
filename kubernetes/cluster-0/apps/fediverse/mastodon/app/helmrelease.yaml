@@ -64,13 +64,13 @@ spec:
       auth:
         database: mastodon
         username: mastodon
-        password: ""
 
     redis:
       enabled: false
       hostname: "redis.database.svc.cluster.local"
       port: 6379
-      password: ""
+      auth:
+        password: ""
 
 
   valuesFrom:
@@ -126,3 +126,7 @@ spec:
       name: mastodon-secret
       valuesKey: OTP_SECRET
       targetPath: mastodon.secrets.otp_secret
+    - kind: Secret
+      name: mastodon-secret
+      valuesKey: POSTGRES_PASSWORD
+      targetPath: mastodon.postgresql.auth.password
