@@ -36,8 +36,3 @@ spec:
       serviceMonitor: true
       prometheus:
         name: default
-  valuesFrom:
-    - kind: Secret
-      name: redis-secret
-      valuesKey: redis-password
-      targetPath: auth.password
