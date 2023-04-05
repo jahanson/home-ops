@@ -1,0 +1,64 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mastodon-web
+  namespace: fediverse
+  labels:
+    app: mastodon
+    component: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mastodon
+      component: web
+  template:
+    metadata:
+      labels:
+        app: mastodon
+        component: web
+    spec:
+      volumes:
+        - name: assets
+          persistentVolumeClaim:
+            claimName: mastodon-assets
+        - name: system
+          persistentVolumeClaim:
+            claimName: mastodon-system
+      containers:
+        - name: mastodon-web
+          image: ghcr.io/mastodon/mastodon:v4.1.2@sha256:6b18e6d0eda476397d48cc36ac040b5da9c73503e374708a815a7f76db740576
+          command: ["/bin/bash"]
+          args: ["-c", "rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000"]
+          imagePullPolicy: IfNotPresent
+          tty: true
+          envFrom:
+            - secretRef:
+                name: mastodon-secret
+          resources:
+            requests:
+              cpu: 15m
+              memory: 64M
+          volumeMounts:
+            - name: assets
+              mountPath: /opt/mastodon/public/assets
+            - name: system
+              mountPath: /opt/mastodon/public/system
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            failureThreshold: 30
+            periodSeconds: 5

@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mastodon-streaming
+  namespace: fediverse
+  labels:
+    app: mastodon
+    component: streaming
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mastodon
+      component: streaming
+  template:
+    metadata:
+      labels:
+        app: mastodon
+        component: streaming
+    spec:
+      containers:
+        - name: mastodon-streaming
+          image: ghcr.io/mastodon/mastodon:v4.1.2@sha256:6b18e6d0eda476397d48cc36ac040b5da9c73503e374708a815a7f76db740576
+          command: ["node"]
+          args: ["./streaming"]
+          imagePullPolicy: IfNotPresent
+          tty: true
+          envFrom:
+            - secretRef:
+                name: mastodon-secret
+          ports:
+            - name: streaming
+              containerPort: 4000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /api/v1/streaming/health
+              port: streaming
+          readinessProbe:
+            httpGet:
+              path: /api/v1/streaming/health
+              port: streaming
+          resources:
+            requests:
+              cpu: 15m
+              memory: 64M
