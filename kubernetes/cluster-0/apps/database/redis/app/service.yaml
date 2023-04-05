@@ -19,3 +19,4 @@ spec:
     app.kubernetes.io/name: redis
     app.kubernetes.io/component: node
     app.kubernetes.io/instance: redis
+    statefulset.kubernetes.io/pod-name: redis-node-2
