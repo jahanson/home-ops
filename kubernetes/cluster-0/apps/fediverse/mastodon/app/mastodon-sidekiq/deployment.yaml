@@ -22,7 +22,11 @@ spec:
       containers:
         - name: mastodon-sidekiq
           image: ghcr.io/mastodon/mastodon:v4.1.2@sha256:6b18e6d0eda476397d48cc36ac040b5da9c73503e374708a815a7f76db740576
-          command: ["bundle exec sidekiq"]
+          command: [
+            "bundle",
+            "exec",
+            "sidekiq"
+            ]
           imagePullPolicy: IfNotPresent
           tty: true
           envFrom:
