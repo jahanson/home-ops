@@ -1,0 +1,75 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mastodon
+  namespace: downloads
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.3.2
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    controller:
+      annotations:
+        reloader.stakater.com/auto: "true"
+
+    image:
+      repository: ghcr.io/mastodon/mastodon
+      tag: v4.1.2@sha256:6b18e6d0eda476397d48cc36ac040b5da9c73503e374708a815a7f76db740576
+
+    envFrom:
+      - secretRef:
+          name: mastodon-secret
+
+    hostname: social
+
+    service:
+      main:
+        ports:
+          backend:
+            port: 3000
+          streaming: 
+            port: 4000
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: ingress.hsn.dev
+        hosts:
+          - host: &host "social.hsn.dev"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - *host
+        rules:
+          - host: *host
+            http:
+              paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: mastodon-web
+                      port:
+                        number: 3000
+          - host: *host
+            http:
+              paths:
+                - path: /api/v1/streaming
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: mastodon-streaming
+                      port:
+                        number: 4000
