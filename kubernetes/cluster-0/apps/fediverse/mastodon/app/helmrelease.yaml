@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: mastodon
-  namespace: downloads
+  namespace: fediverse
 spec:
   interval: 30m
   chart:
@@ -15,7 +15,6 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-
   values:
     controller:
       annotations:
@@ -24,7 +23,6 @@ spec:
     image:
       repository: ghcr.io/mastodon/mastodon
       tag: v4.1.2@sha256:6b18e6d0eda476397d48cc36ac040b5da9c73503e374708a815a7f76db740576
-
     envFrom:
       - secretRef:
           name: mastodon-secret
@@ -34,10 +32,10 @@ spec:
     service:
       main:
         ports:
-          backend:
+          http:
             port: 3000
-          # streaming: 
-          #   port: 4000
+          streaming: 
+            port: 4000
 
     ingress:
       main:
