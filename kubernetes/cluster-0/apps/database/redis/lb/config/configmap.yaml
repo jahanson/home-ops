@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-lb-configmap
+  namespace: database
+data:
+  haproxy.cfg: "global\n    daemon\n    maxconn 256\n\ndefaults\n    mode tcp\n    timeout
+    connect 4s\n    timeout client 30s\n    timeout server 30s\n    retry-on all-retryable-errors\n\nresolvers
+    cluster_ns\n    parse-resolv-conf\n\n    hold valid    10s\n    hold other    30s\n
+    \   hold refused  30s\n    hold nx       30s\n    hold timeout  30s\n    hold
+    obsolete 30s\n\n    resolve_retries 3\n    timeout retry 1s\n    timeout resolve
+    1s\n\nfrontend http\n    bind :8080\n    http-request use-service prometheus-exporter
+    if { path /metrics }\n    default_backend stats\n\nbackend stats\n    mode http\n
+    \   stats enable\n    stats uri /\n    stats refresh 5s\n    stats show-legends\n
+    \   stats admin if TRUE\n\nresolvers k8s\n    parse-resolv-conf\n    hold other
+    \          10s\n    hold refused         10s\n    hold nx              10s\n    hold
+    timeout         10s\n    hold valid           10s\n    hold obsolete        10s\n\nfrontend
+    redis-read\n    bind *:6380\n    default_backend redis-online\n\nfrontend redis-write\n
+    \   bind *:6379\n    default_backend redis-primary\n\nfrontend redis-sentinel\n
+    \   bind *:26379\n    default_backend redis-sentinel\n\nbackend redis-primary\n
+    \   balance first\n    option tcp-check\n    tcp-check connect port 6379\n    tcp-check
+    send info\\ replication\\r\\n\n    tcp-check expect string role:master\n    server
+    redis-0 redis-node-0.redis-headless.database.svc.cluster.local check inter 5s
+    resolvers cluster_ns\n    server redis-1 redis-node-1.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n    server redis-2 redis-node-2.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n\nbackend redis-online\n    balance roundrobin\n
+    \   option tcp-check\n    tcp-check connect port 6379\n    tcp-check send PING\\r\\n\n
+    \   tcp-check expect string +PONG\n    server redis-0 redis-node-0.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n    server redis-1 redis-node-1.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n    server redis-2 redis-node-2.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n\nbackend redis-sentinel\n    balance roundrobin\n
+    \   option tcp-check\n    tcp-check connect port 26379\n    tcp-check send PING\\r\\n\n
+    \   tcp-check expect string +PONG\n    server redis-0 redis-node-0.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n    server redis-1 redis-node-1.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n    server redis-2 redis-node-2.redis-headless.database.svc.cluster.local
+    check inter 5s resolvers cluster_ns\n    "

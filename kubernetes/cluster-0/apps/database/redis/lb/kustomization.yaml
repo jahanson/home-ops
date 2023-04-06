@@ -5,10 +5,11 @@ kind: Kustomization
 namespace: database
 resources:
   - helmrelease.yaml
-configMapGenerator:
-  - name: redis-lb-configmap
-    files:
-      - haproxy.cfg=./config/haproxy.cfg
+  - ./config/configmap.yaml
+# configMapGenerator:
+#   - name: redis-lb-configmap
+#     files:
+#       - haproxy.cfg=./config/haproxy.cfg
 configurations:
   - ./patches/kustomizeconfig.yaml
 labels:
