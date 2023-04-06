@@ -1,0 +1,38 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: zalando-postgres-ui
+  namespace: database
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: postgres-operator-ui
+      version: 1.9.0
+      sourceRef:
+        kind: HelmRepository
+        name: zalando-postgres-operator-ui
+        namespace: flux-system
+      interval: 5m
+  # https://github.com/zalando/postgres-operator/blob/master/charts/postgres-operator-ui/values.yaml
+  values:
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+          - host: &host "zelando-ui.hsn.dev"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - *host
+    resources:
+      requests:
+        cpu: 5m
+        memory: 32M
+      limits:
+        memory: 100M
