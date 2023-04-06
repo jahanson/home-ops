@@ -19,7 +19,7 @@ spec:
 
   postgresql:
     version: "15"
-    paramenters:
+    parameters:
       max_connections: 200
 
   # Restore procedure:
