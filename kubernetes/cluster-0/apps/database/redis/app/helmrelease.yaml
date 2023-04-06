@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   values:
     auth:
-      enabled: true
+      enabled: false
       sentinel: false
     master:
       podLabels:
@@ -50,8 +50,3 @@ spec:
       serviceMonitor:
         enabled: true
         interval: 1m
-  valuesFrom:
-    - kind: Secret
-      name: redis-secret
-      valuesKey: redis-password
-      targetPath: auth.password

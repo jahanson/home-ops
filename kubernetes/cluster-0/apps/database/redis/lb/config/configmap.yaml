@@ -29,7 +29,8 @@ data:
     \   tcp-check expect string +PONG\n    server redis-0 redis-node-0.redis-headless.database.svc.cluster.local
     check inter 5s resolvers cluster_ns\n    server redis-1 redis-node-1.redis-headless.database.svc.cluster.local
     check inter 5s resolvers cluster_ns\n    server redis-2 redis-node-2.redis-headless.database.svc.cluster.local
-    check inter 5s resolvers cluster_ns\n    "
+    check inter 5s resolvers cluster_ns\n
+    \n"
 kind: ConfigMap
 metadata:
   creationTimestamp: "2023-04-06T01:00:02Z"
