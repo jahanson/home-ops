@@ -1,8 +1,4 @@
 apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: redis-lb-configmap
-  namespace: database
 data:
   haproxy.cfg: "global\n    daemon\n    maxconn 256\n\ndefaults\n    mode tcp\n    timeout
     connect 4s\n    timeout client 30s\n    timeout server 30s\n    retry-on all-retryable-errors\n\nresolvers
@@ -34,3 +30,16 @@ data:
     check inter 5s resolvers cluster_ns\n    server redis-1 redis-node-1.redis-headless.database.svc.cluster.local
     check inter 5s resolvers cluster_ns\n    server redis-2 redis-node-2.redis-headless.database.svc.cluster.local
     check inter 5s resolvers cluster_ns\n    "
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-04-06T01:00:02Z"
+  labels:
+    app.kubernetes.io/instance: redis-lb
+    app.kubernetes.io/name: redis-lb
+    app.kubernetes.io/part-of: redis
+    kustomize.toolkit.fluxcd.io/name: cluster-apps-redis-lb
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  name: redis-lb-configmap
+  namespace: database
+  resourceVersion: "6933562"
+  uid: b3eb0598-0b70-440b-98dd-41c7bf703df4
