@@ -20,7 +20,7 @@ spec:
   postgresql:
     version: "15"
     parameters:
-      max_connections: 200
+      max_connections: "200"
 
   # Restore procedure:
   # - Remove the existing cluster
