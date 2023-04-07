@@ -171,6 +171,13 @@ spec:
             static_configs:
               - targets:
                   - gateway.jahanson.tech:9798 # speedtest-exporter
+          - job_name: minio
+            scrape_interval: 1m
+            scrape_timeout: 10s
+            honor_timestamps: true
+            static_configs:
+              - targets:
+                  - s3m.hsn.dev/minio/v2/metrics/cluster # minio
 
         enableAdminAPI: true
         externalLabels:
