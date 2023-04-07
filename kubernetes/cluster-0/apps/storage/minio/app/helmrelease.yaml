@@ -81,6 +81,12 @@ spec:
           nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
           nginx.ingress.kubernetes.io/configuration-snippet: |
             chunked_transfer_encoding off;
+            location /minio/v2/metrics/cluster {
+              allow 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16;
+              deny all;
+              return 404;
+            }
+            
         hosts:
           - host: &host-api "s3m.hsn.dev"
             paths:
@@ -88,12 +94,6 @@ spec:
                 pathType: Prefix
                 service:
                   port: *port-api
-              - path: /minio/v2/metrics
-                pathType: Prefix
-                service:
-                  port: *port-api
-                annotations:
-                  nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         tls:
           - hosts:
               - *host-api
