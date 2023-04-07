@@ -82,7 +82,9 @@ spec:
           nginx.ingress.kubernetes.io/configuration-snippet: |
             chunked_transfer_encoding off;
             location /minio/v2/metrics/cluster {
-              allow 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16;
+              allow 10.0.0.0/8;
+              allow 172.16.0.0/12;
+              allow 192.168.0.0/16;
               deny all;
               return 404;
             }
