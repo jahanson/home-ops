@@ -175,9 +175,11 @@ spec:
             scrape_interval: 1m
             scrape_timeout: 10s
             honor_timestamps: true
+            metrics_path: /minio/v2/metrics/cluster
+            scheme: https
             static_configs:
               - targets:
-                  - s3m.hsn.dev/minio/v2/metrics/cluster # minio
+                  - s3m.hsn.dev # minio
 
         enableAdminAPI: true
         externalLabels:
