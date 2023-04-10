@@ -68,12 +68,20 @@ spec:
       config:
         enabled: true
         existingClaim: sonarr-config
+
       media:
         enabled: true
         type: nfs
         server: "nas.jahanson.tech"
         path: /volume1/Media
         mountPath: /data/nas-media
+      
+      sting-media:
+        enabled: true
+        type: nfs
+        server: "sting.jahanson.tech"
+        path: /mnt/user/Media
+        mountPath: /data/sting-media
 
     resources:
       requests:
