@@ -1,0 +1,66 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: unpackerr
+  namespace: downloads
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.3.2
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controller:
+      type: statefulset
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      repository: ghcr.io/onedr0p/unpackerr
+      tag: 0.11.1@sha256:8aa2e192f27fe2f6c22b4c73ec780507f2b26cfed26d4c906b1852f53a18d27d
+    env:
+      TZ: America/Chicago
+      UN_SONARR_0_URL: http://sonarr.downloads.svc.cluster.local
+      UN_SONARR_0_PATHS_0: /complete/Series
+      UN_RADARR_0_URL: http://radarr.downloads.svc.cluster.local
+      UN_RADARR_0_PATHS_0: /complete/Movies
+    envFrom:
+      - secretRef:
+          name: unpackerr-secret
+    service:
+      main:
+        enabled: false
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+      supplementalGroups: [10000]
+    persistence:
+      complete:
+        enabled: true
+        type: nfs
+        server: nas.jahanson.tech
+        path: /volume1/Media/Downloads/Complete
+        mountPath: /complete
+    resources:
+      requests:
+        cpu: 10m
+        memory: 250Mi
+      limits:
+        memory: 2000Mi
