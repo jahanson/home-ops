@@ -39,6 +39,8 @@ spec:
       UN_SONARR_0_PATHS_0: /complete/Series
       UN_RADARR_0_URL: http://radarr.hsn.dev
       UN_RADARR_0_PATHS_0: /complete/Movies
+      UN_RADARR_1_URL: http://10.1.1.11:7878
+      UN_RADARR_1_PATHS_0: /complete/Movies
     envFrom:
       - secretRef:
           name: unpackerr-secret
