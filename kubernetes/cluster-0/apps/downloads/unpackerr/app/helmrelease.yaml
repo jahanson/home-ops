@@ -35,12 +35,10 @@ spec:
       tag: 0.11.1@sha256:8aa2e192f27fe2f6c22b4c73ec780507f2b26cfed26d4c906b1852f53a18d27d
     env:
       TZ: America/Chicago
-      UN_SONARR_0_URL: http://sonarr.hsn.dev
+      UN_SONARR_0_URL: http://sonarr.downloads.svc.cluster.local:8989
       UN_SONARR_0_PATHS_0: /complete/Series
-      UN_RADARR_0_URL: http://radarr.hsn.dev
+      UN_RADARR_0_URL: http://radarr.downloads.svc.cluster.local:7878
       UN_RADARR_0_PATHS_0: /complete/Movies
-      UN_RADARR_1_URL: http://10.1.1.12:7878
-      UN_RADARR_1_PATHS_0: /complete/Movies
     envFrom:
       - secretRef:
           name: unpackerr-secret
