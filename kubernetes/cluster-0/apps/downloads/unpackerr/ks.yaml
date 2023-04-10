@@ -9,7 +9,7 @@ spec:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-radarr
     - name: cluster-apps-sonarr
-  path: ./kubernetes/apps/default/unpackerr/app
+  path: ./kubernetes/cluster-0/apps/downloads/unpackerr/app
   prune: true
   sourceRef:
     kind: GitRepository
