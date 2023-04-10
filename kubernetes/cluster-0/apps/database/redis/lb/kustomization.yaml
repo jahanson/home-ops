@@ -5,13 +5,12 @@ kind: Kustomization
 namespace: database
 resources:
   - helmrelease.yaml
-#  - ./config/configmap.yaml
-# configMapGenerator:
-#   - name: redis-lb-configmap
-#     files:
-#       - haproxy.cfg=./config/haproxy.cfg
-configurations:
-  - ./patches/kustomizeconfig.yaml
+configMapGenerator:
+  - name: redis-lb-configmap
+    files:
+      - haproxy.cfg=./config/haproxy.cfg
+generatorOptions:
+  disableNameSuffixHash: true
 labels:
   - pairs:
       app.kubernetes.io/name: redis-lb
