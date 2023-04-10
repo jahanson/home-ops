@@ -76,8 +76,8 @@ spec:
       media:
         enabled: true
         type: nfs
-        server: "nas.jahanson.tech"
-        path: /volume1/Media
+        server: "sting.jahanson.tech"
+        path: /mnt/user/Media
         mountPath: /data/nas-media
 
     resources:
