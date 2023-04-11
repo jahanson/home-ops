@@ -53,7 +53,7 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: ingress.hsn.dev
         hosts:
-          - host: &host "domo.hsn.dev"
+          - host: &host "istari.hsn.dev"
             paths:
               - path: /
         tls:
