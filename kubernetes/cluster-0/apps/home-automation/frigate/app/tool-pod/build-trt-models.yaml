@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: build-trt-models
+  namespace: default
+spec:
+  containers:
+  - name: tensorrt
+    image: nvcr.io/nvidia/tensorrt:22.07-py3
+    # command: ["/bin/bash", "-c", "/trt_models/build_trt.sh"]
+    command: ["/bin/bash", "-c", "while true; do sleep 10; done"]
+    resources:
+      requests:
+        nvidia.com/gpu: "1"
+        cpu: 323m
+        memory: 443M
+      limits:
+        nvidia.com/gpu: "1"
+    volumeMounts:
+    - mountPath: /tensorrt_models
+      name: trt-models
+  runtimeClassName: nvidia
+  nodeSelector:
+    feature.node.kubernetes.io/pci-0300_10de.present: "true"
+    kubernetes.io/hostname: "glamdring" # until I can figure out how to blacklist the old GPU.
+  volumes:
+    - name: trt-models
+      nfs:
+        server: "nas.jahanson.tech"
+        path: /volume1/trt-models/nvidia-2060
