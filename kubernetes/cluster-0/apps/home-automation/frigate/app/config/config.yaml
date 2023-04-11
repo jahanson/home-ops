@@ -66,7 +66,7 @@ go2rtc:
       - "ffmpeg:driveway#audio=opus"
 
 cameras:
-  doorbell:
+  driveway:
     ffmpeg:
       output_args:
         record: preset-record-generic-audio-copy
