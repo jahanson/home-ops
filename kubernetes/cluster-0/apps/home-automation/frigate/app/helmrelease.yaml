@@ -27,7 +27,8 @@ spec:
       tag: 0.12.0-tensorrt
 
     env:
-      LIBVA_DRIVER_NAME: i965
+      NVIDIA_VISIBLE_DEVICES: "all"
+      NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility"
 
     envFrom:
       - secretRef:
