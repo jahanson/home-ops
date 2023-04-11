@@ -58,7 +58,7 @@ objects:
 # Specify camera's
 go2rtc:
   streams:
-    driveway_main:
+    driveway_4k:
       - rtsp://{FRIGATE_CAMERA_DRIVEWAY_USER}:{FRIGATE_CAMERA_DRIVEWAY_PASSWORD}@{FRIGATE_CAMERA_DRIVEWAY_HOST}:554/h264Preview_01_main
       - "ffmpeg:driveway_4k#audio=opus#video=h264"
     driveway_substream:
@@ -75,7 +75,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles:
             - record
-        - path: rtsp://127.0.0.1:8554/driveway_sub?video=copy&audio=aac
+        - path: rtsp://127.0.0.1:8554/driveway_substream?video=copy&audio=aac
           input_args: preset-rtsp-restream
           roles:
             - detect
