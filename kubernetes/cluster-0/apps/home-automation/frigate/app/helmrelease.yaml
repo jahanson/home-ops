@@ -37,6 +37,7 @@ spec:
 
     service:
       main:
+        loadBalancerIP: 10.45.0.26
         ports:
           http:
             port: &port 5000
