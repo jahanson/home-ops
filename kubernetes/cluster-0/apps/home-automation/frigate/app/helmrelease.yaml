@@ -126,7 +126,6 @@ spec:
       privileged: true
 
     nodeSelector:
-      google.feature.node.kubernetes.io/coral: "true"
       feature.node.kubernetes.io/pci-0300_10de.present: "true"
       kubernetes.io/hostname: "glamdring" # until I can figure out how to blacklist the old GPU.
 
@@ -137,7 +136,7 @@ spec:
         memory: 443M
       limits:
         nvidia.com/gpu: 1
-        memory: 886M
+        # memory: 886M
 
     volumeClaimTemplates:
       - name: data
