@@ -87,7 +87,7 @@ spec:
         enabled: true
         type: nfs
         server: "nas.jahanson.tech"
-        path: /volume1/IPCams/frigate
+        path: /volume1/IPCams
         mountPath: /media
       usb:
         enabled: true
