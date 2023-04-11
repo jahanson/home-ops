@@ -95,7 +95,7 @@ spec:
         enabled: true
         type: nfs
         server: "nas.jahanson.tech"
-        path: /volume1/IPCams/trt-models
+        path: /volume1/trt-models/nvidia-2060
         mountPath: /trt-models
       usb:
         enabled: true
