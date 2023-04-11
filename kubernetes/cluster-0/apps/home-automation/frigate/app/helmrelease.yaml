@@ -39,6 +39,8 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: 10.45.0.26
+        annotations:
+          coredns.io/hostname: frigate-rtsp.hsn.dev
         ports:
           http:
             port: &port 5000
