@@ -91,6 +91,12 @@ spec:
         server: "nas.jahanson.tech"
         path: /volume1/IPCams
         mountPath: /media
+      trt-models:
+        enabled: true
+        type: nfs
+        server: "nas.jahanson.tech"
+        path: /volume1/IPCams/trt-models
+        mountPath: /trt-models
       usb:
         enabled: true
         type: hostPath

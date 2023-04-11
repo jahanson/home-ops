@@ -101,7 +101,7 @@ cameras:
         - car
         - bus
 model:
-  path: /media/yolov7-tiny-416.trt
+  path: /trt-models/yolov7-tiny-416.trt
   input_tensor: nchw
   input_pixel_format: rgb
   width: 416
