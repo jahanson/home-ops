@@ -18,9 +18,9 @@ database:
   path: /data/frigate.db
 
 detectors:
-  coral:
-    type: edgetpu
-    device: usb
+  tensorrt:
+    type: tensorrt
+    device: 0 #This is the default, select the first GPU
 
 # Global ffmpeg configuration
 ffmpeg:
