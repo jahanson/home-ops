@@ -8,7 +8,7 @@ birdseye:
   enabled: false
 
 mqtt:
-  host: 10.1.1.13
+  host: mosquitto.home-automation.svc.cluster.local
   port: 1883
   topic_prefix: frigate
   user: "{FRIGATE_MQTT_USER}"
