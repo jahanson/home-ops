@@ -86,7 +86,9 @@ spec:
       usb:
         enabled: true
         type: hostPath
-        hostPath: /dev/bus/usb
+        hostPath: /dev/bus/usb/dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_84c6ca98fd3eeb11a12a8ceff28b3f46-if00-port0
+        hostPathType: CharDevice
+        mountPath: /dev/ttyUSB0
     nodeSelector:
       kubernetes.io/hostname: "glamdring" # Until I can get node feature discovery working with Zooz ZST10 700
     resources:
