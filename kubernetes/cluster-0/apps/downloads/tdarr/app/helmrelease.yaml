@@ -1,0 +1,109 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: tdarr
+  namespace: downloads
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  dependsOn:
+    - name: ingress-nginx
+      namespace: networking
+  values:
+    image:
+      repository: ghcr.io/haveagitgat/tdarr
+      tag: 2.00.20.1
+    env:
+      serverIP: 0.0.0.0
+      serverPort: &serverport 8266
+      webUIPort: &webport 8265
+      internalNode: true
+      nodeID: "MyInternalNode"
+      nodeIP: 0.0.0.0
+      nodePort: 8267
+
+    service:
+      main:
+        ports:
+          http:
+            port: *webport
+          server:
+            enabled: true
+            protocol: TCP
+            port: *serverport
+    persistence:
+      config:
+        enabled: true
+        existingClaim: tdarr-config
+        subPath:
+          - path: tdarr/config
+            mountPath: /app/configs
+          - path: tdarr/data
+            mountPath: /app/server
+      media:
+        enabled: true
+        type: nfs
+        server: "nas.jahanson.tech"
+        path: /volume1/Media
+        mountPath: /data/nas-media
+      sting-media:
+        enabled: true
+        type: nfs
+        server: "sting.jahanson.tech"
+        path: /mnt/user/Media
+        mountPath: /media
+        subPath: library
+      # Transcode dir
+      # shared:
+      #   enabled: true
+      #   type: emptyDir
+      #   mountPath: /shared
+
+    resources:
+      requests:
+        cpu: 15m
+        memory: "2048M"
+        nvidia.com/gpu: 1
+      limits:
+        nvidia.com/gpu: 1
+
+    runtimeClassName: nvidia
+    nodeSelector:
+      feature.node.kubernetes.io/pci-0300_10de.present: "true"
+      kubernetes.io/hostname: "glamdring"
+
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: ceph-block
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+          - host: &host "tdarr.hsn.dev"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - *host
