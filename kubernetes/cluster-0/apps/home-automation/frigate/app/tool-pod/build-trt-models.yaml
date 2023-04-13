@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
   - name: tensorrt
-    image: nvcr.io/nvidia/tensorrt:22.07-py3@sha256:ecac0198840b5c20c894897816c331f743cf0348853ab15f756805a718554ed7
+    image: nvcr.io/nvidia/tensorrt:22.12-py3@sha256:d07df947208a069ce111b86d5b7044aa802bb26f67eebaa62b7ab08dd8d836e8
     # command: ["/bin/bash", "-c", "/trt_models/build_trt.sh"]
     command: ["/bin/bash", "-c", "while true; do sleep 10; done"]
     resources:
