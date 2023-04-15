@@ -186,7 +186,7 @@ spec:
             honor_timestamps: true
             static_configs:
               - targets:
-                  - pg-exporter.database.svc.cluster.local # default zalando postgres cluster
+                  - pg-exporter.database.svc.cluster.local:9187 # default zalando postgres cluster
 
         enableAdminAPI: true
         externalLabels:
