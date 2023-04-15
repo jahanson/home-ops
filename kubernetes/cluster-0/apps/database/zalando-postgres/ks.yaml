@@ -65,4 +65,4 @@ spec:
     name: home-ops-kubernetes
   wait: true
   dependsOn:
-    - name: cluster-apps-postgres-cluster
+    - name: cluster-apps-zalando-postgres-cluster
