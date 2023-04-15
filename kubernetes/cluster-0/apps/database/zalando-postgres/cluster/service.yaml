@@ -19,3 +19,22 @@ spec:
     application: spilo
     cluster-name: postgres
     spilo-role: master
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pg-exporter
+  namespace: database
+  labels:
+    app: pg-exporter
+spec:
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+    - name: exporter
+      port: 9187
+      targetPort: exporter
+  selector:
+    application: spilo
+    team: jahanson
