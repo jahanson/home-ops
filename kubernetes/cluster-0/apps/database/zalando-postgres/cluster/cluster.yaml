@@ -23,7 +23,7 @@ spec:
       max_connections: "300"
   sidecars:
   - name: "exporter"
-    image: "wrouesnel/postgres_exporter"
+    image: "wrouesnel/postgres_exporter@sha256:54bd3ba6bc39a9da2bf382667db4dc249c96e4cfc837dafe91d6cc7d362829e0"
     ports:
       - name: exporter
         containerPort: 9187
