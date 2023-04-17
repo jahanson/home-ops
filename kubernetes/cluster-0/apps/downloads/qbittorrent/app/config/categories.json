@@ -2,6 +2,9 @@
     "Movies": {
         "save_path": "/data/nas-media/Downloads/Complete/Movies"
     },
+    "Movies-4k": {
+        "save_path": "/data/nas-media/Downloads/Complete/Movies-4k"
+    },
     "Music": {
         "save_path": "/data/nas-media/Downloads/Complete/Music"
     },
@@ -10,6 +13,9 @@
     },
     "Series": {
         "save_path": "/data/nas-media/Downloads/Complete/Series"
+    },
+    "Series-4k": {
+        "save_path": "/data/nas-media/Downloads/Complete/Series-4k"
     },
     "Special": {
         "save_path": "/data/nas-media/Downloads/Complete/Special"
