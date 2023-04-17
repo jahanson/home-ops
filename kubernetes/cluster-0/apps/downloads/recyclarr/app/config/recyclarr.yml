@@ -62,8 +62,6 @@ sonarr:
         quality_profiles:
           - name: HD-1080p
             reset_unmatched_scores: true
-          - name: WEB-1080p
-            reset_unmatched_scores: true
   uhd:
     base_url: http://sonarr4k.downloads.svc.cluster.local:8989
     api_key: !env_var SONARR4k_API_KEY
