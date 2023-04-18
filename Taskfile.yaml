@@ -10,9 +10,41 @@ includes:
   k8s: .taskfiles/k8s/tasks.yaml
   externalsecrets: .taskfiles/externalsecrets/tasks.yaml
   volsync: .taskfiles/volsync/tasks.yaml
+  precommit: .taskfiles/precommit/tasks.yml
 
 tasks:
   default:
     silent: true
     cmds:
       - task -l
+  init:
+    desc: Initialize workstation dependencies with Brew
+    cmds:
+      - brew install {{.DEPS}} {{.CLI_ARGS}}
+    preconditions:
+      - sh: command -v brew
+        msg: |
+          Homebrew is not installed. Using MacOS, Linux or WSL?
+          Head over to https://brew.sh to get up and running.
+    vars:
+      DEPS: >-
+        age
+        ansible
+        direnv
+        derailed/k9s/k9sj
+        fluxcd/tap/flux
+        go-task/tap/go-task
+        helm
+        ipcalc
+        jq
+        kubernetes-cli
+        kustomize
+        pre-commit
+        prettier
+        sops
+        stern
+        terraform
+        tflint
+        weaveworks/tap/gitops
+        yamllint
+        yq
