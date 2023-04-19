@@ -61,6 +61,7 @@ spec:
       config:
         enabled: true
         existingClaim: elk-config
+        mountPath: /elk/data
 
     resources:
       requests:
