@@ -22,32 +22,32 @@ spec:
     parameters:
       max_connections: "300"
   sidecars:
-  - name: "exporter"
-    image: "wrouesnel/postgres_exporter@sha256:54bd3ba6bc39a9da2bf382667db4dc249c96e4cfc837dafe91d6cc7d362829e0"
-    ports:
-      - name: exporter
-        containerPort: 9187
-        protocol: TCP
-    resources:
-      limits:
-        cpu: 500m
-        memory: 256M
-      requests:
-        cpu: 100m
-        memory: 200M
-    env:
-      - name: "DATA_SOURCE_URI"
-        value: "postgres/postgres?sslmode=disable"
-      - name: "DATA_SOURCE_USER"
-        valueFrom:
-          secretKeyRef:
-            name: postgres.postgres.credentials.postgresql.acid.zalan.do
-            key: username
-      - name: "DATA_SOURCE_PASS"
-        valueFrom:
-          secretKeyRef:
-            name: postgres.postgres.credentials.postgresql.acid.zalan.do
-            key: password
+    - name: "exporter"
+      image: "wrouesnel/postgres_exporter@sha256:54bd3ba6bc39a9da2bf382667db4dc249c96e4cfc837dafe91d6cc7d362829e0"
+      ports:
+        - name: exporter
+          containerPort: 9187
+          protocol: TCP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 256M
+        requests:
+          cpu: 100m
+          memory: 200M
+      env:
+        - name: "DATA_SOURCE_URI"
+          value: "postgres/postgres"
+        - name: "DATA_SOURCE_USER"
+          valueFrom:
+            secretKeyRef:
+              name: postgres.postgres.credentials.postgresql.acid.zalan.do
+              key: username
+        - name: "DATA_SOURCE_PASS"
+          valueFrom:
+            secretKeyRef:
+              name: postgres.postgres.credentials.postgresql.acid.zalan.do
+              key: password
   # Restore procedure:
   # - Remove the existing cluster
   # - Uncomment the "clone" section below to restore a point in time backup
@@ -56,4 +56,3 @@ spec:
   # clone:
   #   cluster: "postgres"  # The source cluster name
   #   timestamp: "2023-03-21T19:50:00+00:00"  # timezone required (offset relative to UTC, see RFC 3339 section 5.6)
-  
