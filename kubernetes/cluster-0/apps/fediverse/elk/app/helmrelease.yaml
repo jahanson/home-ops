@@ -28,6 +28,14 @@ spec:
     env:
       NUXT_PUBLIC_DEFAULT_SERVER: "social.hsn.dev"
 
+    podSecurityContext:
+      runAsUser: 911
+      runAsGroup: 911
+      fsGroup: 911
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 65539
+
     service:
       main:
         ports:
