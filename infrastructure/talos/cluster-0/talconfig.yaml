@@ -42,6 +42,19 @@ nodes:
             dhcp: false
             addresses:
               - 10.1.3.142/24
+  - hostname: shadowfax.jahanson.tech
+    disableSearchDomain: true
+    ipAddress: 10.1.1.33
+    controlPlane: true
+    installDisk: /dev/nvme1n1
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+        vlans:
+          - vlanId: 40
+            dhcp: false
+            addresses:
+              - 10.1.3.144/24
   - hostname: lembas.jahanson.tech
     disableSearchDomain: true
     ipAddress: 10.1.1.34
