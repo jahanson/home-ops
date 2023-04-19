@@ -37,7 +37,7 @@ spec:
           memory: 200M
       env:
         - name: "DATA_SOURCE_URI"
-          value: "postgres-ext/postgres"
+          value: "postgres-ext.database.svc.cluster.local/postgres"
         - name: "DATA_SOURCE_USER"
           valueFrom:
             secretKeyRef:
