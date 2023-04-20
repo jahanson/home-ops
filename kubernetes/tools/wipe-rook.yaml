@@ -108,3 +108,39 @@ spec:
     - name: host-var
       hostPath:
         path: /var
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: disk-wipe-shadowfax
+spec:
+  restartPolicy: Never
+  nodeName: shadowfax
+  containers:
+    - name: disk-wipe
+      image: ghcr.io/onedr0p/alpine:3.17.3@sha256:e6a2407a15b7e557fb6617a592f672b004b6764887438502c047a567ec616e40
+      securityContext:
+        privileged: true
+      resources: {}
+      env:
+        - name: CEPH_DISK
+          value: /dev/nvme1n1
+      command:
+        [
+          "/bin/sh",
+          "-c"
+        ]
+      args:
+        - apk add --no-cache sgdisk util-linux parted;
+          sgdisk --zap-all $CEPH_DISK;
+          blkdiscard $CEPH_DISK;
+          dd if=/dev/zero bs=1M count=10000 oflag=direct of=$CEPH_DISK;
+          partprobe $CEPH_DISK;
+          rm -rf /mnt/host_var/lib/rook
+      volumeMounts:
+        - mountPath: /mnt/host_var
+          name: host-var
+  volumes:
+    - name: host-var
+      hostPath:
+        path: /var

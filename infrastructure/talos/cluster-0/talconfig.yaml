@@ -46,7 +46,7 @@ nodes:
     disableSearchDomain: true
     ipAddress: 10.1.1.33
     controlPlane: true
-    installDisk: /dev/nvme1n1
+    installDisk: /dev/nvme0n1
     networkInterfaces:
       - interface: bond0
         dhcp: true
