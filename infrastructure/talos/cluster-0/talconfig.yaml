@@ -1,7 +1,7 @@
 ---
 clusterName: cluster-0
 
-talosVersion: v1.3.6
+talosVersion: v1.4.0
 kubernetesVersion: 1.26.1
 endpoint: "https://cluster-0.jahanson.tech:6443"
 
@@ -48,11 +48,12 @@ nodes:
     controlPlane: true
     installDisk: /dev/nvme1n1
     networkInterfaces:
-      - interface: eth0
+      - interface: bond0
         dhcp: true
         bond:
           deviceSelectors:
             - hardwareAddr: '04:42:1a:*'
+          mode: 802.3ad
         vlans:
           - vlanId: 40
             dhcp: false
@@ -103,6 +104,7 @@ controlPlane:
         install:
           extraKernelArgs:
             - "talos.logging.kernel=udp://vector.hsn.dev:6050/"
+            - cpufreq.default_governor=performance
         logging:
           destinations:
             - endpoint: "udp://vector.hsn.dev:6051/"
