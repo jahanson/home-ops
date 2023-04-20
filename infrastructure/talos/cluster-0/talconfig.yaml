@@ -50,6 +50,9 @@ nodes:
     networkInterfaces:
       - interface: eth0
         dhcp: true
+        bond:
+          deviceSelectors:
+            - hardwareAddr: '04:42:1a:*'
         vlans:
           - vlanId: 40
             dhcp: false
