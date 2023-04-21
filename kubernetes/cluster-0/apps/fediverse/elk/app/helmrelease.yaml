@@ -23,7 +23,7 @@ spec:
 
     image:
       repository: ghcr.io/elk-zone/elk
-      tag: v0.8.0@sha256:e0cabcce025dd78b32bd760bf12eb6d3d5c309be776ac75422c769ce1ff549be
+      tag: v0.8.1@sha256:c0ef9d1e0a8289215edd8607095f731d9db714e0688dddf2d107ba667d7b7f21
 
     env:
       NUXT_PUBLIC_DEFAULT_SERVER: "social.hsn.dev"
