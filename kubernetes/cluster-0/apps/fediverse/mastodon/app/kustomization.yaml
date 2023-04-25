@@ -5,4 +5,5 @@ namespace: fediverse
 resources:
   - ./ingress.yaml
   - ./externalsecret.yaml
+  - ./elasticsearch.yaml
   - ./pvc.yaml
