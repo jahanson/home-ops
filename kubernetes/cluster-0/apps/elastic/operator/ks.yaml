@@ -6,7 +6,7 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
-  path: ./cluster-0/apps/elastic/operator/app
+  path: ./kubernetes/cluster-0/apps/elastic/operator/app
   prune: false
   sourceRef:
     kind: GitRepository
