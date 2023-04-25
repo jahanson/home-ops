@@ -4,6 +4,3 @@ kind: Kustomization
 namespace: search
 resources:
   - ./helmrelease.yaml
-  - ./elasticsearch.yaml
-  - ./ingress.yaml
-  - ./kibana.yaml
