@@ -17,7 +17,7 @@ spec:
         paths:
           - backend:
               service:
-                name: main-kb-http
+                name: mastodon-kb-http
                 port:
                   number: 5601
             path: /
