@@ -3,7 +3,7 @@ kind: Kibana
 apiVersion: kibana.k8s.elastic.co/v1
 metadata:
   name: mastodon
-  namespace: elastic
+  namespace: fediverse
 spec:
   version: 7.17.9
   count: 1
