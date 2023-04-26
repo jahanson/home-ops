@@ -6,11 +6,13 @@ metadata:
   namespace: fediverse
 spec:
   version: 7.17.9
+  env:
   nodeSets:
     - name: default
       count: 1
       config:
         node.store.allow_mmap: false
+        xpack.security.enabled: false
       podTemplate:
         spec:
           containers:
