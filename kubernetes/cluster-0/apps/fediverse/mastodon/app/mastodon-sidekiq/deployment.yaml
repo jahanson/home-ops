@@ -15,6 +15,8 @@ spec:
       component: sidekiq
   template:
     metadata:
+      annotations:
+        reloader.stakater.com/auto: "true"
       labels:
         app: mastodon
         component: sidekiq
@@ -40,7 +42,7 @@ spec:
             "pull",
             "-q",
             "scheduler"
-            ]
+          ]
           imagePullPolicy: IfNotPresent
           tty: true
           envFrom:
