@@ -6,7 +6,6 @@ metadata:
   namespace: fediverse
 spec:
   version: 7.17.9
-  env:
   nodeSets:
     - name: default
       count: 1
