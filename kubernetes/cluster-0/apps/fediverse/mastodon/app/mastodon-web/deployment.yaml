@@ -19,10 +19,10 @@ spec:
         app: mastodon
         component: web
     spec:
-      volumes:
-        - name: system
-          persistentVolumeClaim:
-            claimName: mastodon-system
+      # volumes:
+      #   - name: system
+      #     persistentVolumeClaim:
+      #       claimName: mastodon-system
       containers:
         - name: mastodon-web
           image: ghcr.io/mastodon/mastodon:v4.1.2@sha256:6b18e6d0eda476397d48cc36ac040b5da9c73503e374708a815a7f76db740576
@@ -41,9 +41,9 @@ spec:
             requests:
               cpu: 15m
               memory: 64M
-          volumeMounts:
-            - name: system
-              mountPath: /opt/mastodon/public/system
+          # volumeMounts:
+          #   - name: system
+          #     mountPath: /opt/mastodon/public/system
           ports:
             - name: http
               containerPort: 3000
