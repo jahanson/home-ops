@@ -21,8 +21,8 @@ spec:
       annotations:
         reloader.stakater.com/auto: "true"
 
-    command: ["/bin/sh", "-c", "statsd_exporter --statsd.mapping-config=/config/mastodon-mapping.yaml"]
-
+    # command: ["/bin/sh", "-c", "statsd_exporter --statsd.mapping-config=/config/mastodon-mapping.yaml"]
+    command: ["/bin/bash", "-c", "while true; do sleep 10; done"]
     image:
       repository: docker.io/prom/statsd-exporter
       tag: v0.23.1
