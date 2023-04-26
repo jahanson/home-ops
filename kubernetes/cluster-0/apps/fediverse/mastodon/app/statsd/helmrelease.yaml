@@ -30,7 +30,7 @@ spec:
     service:
       main:
         ports:
-          statsd:
+          http:
             port: 9125
             enabled: true
             primary: true
