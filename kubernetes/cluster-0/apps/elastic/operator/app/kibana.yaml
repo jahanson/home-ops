@@ -3,11 +3,12 @@ kind: Kibana
 apiVersion: kibana.k8s.elastic.co/v1
 metadata:
   name: mastodon
-  namespace: fediverse
+  namespace: elastic
 spec:
   version: 7.17.9
   count: 1
   elasticsearchRef:
     name: mastodon
+    namespace: fediverse
   config:
     server.publicBaseUrl: https://kibana.hsn.dev
