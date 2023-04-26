@@ -1,0 +1,50 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: statsd_exporter
+  namespace: fediverse
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.4.0
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    controller:
+      annotations:
+        reloader.stakater.com/auto: "true"
+
+    command: ["/bin/sh", "-c", "statsd_exporter --web.listen-address=:9125 --statsd.mapping-config=/config/mastodon-mapping.yaml"]
+
+    image:
+      repository: docker.io/prom/statsd-exporter
+      tag: v0.23.1
+
+    service:
+      main:
+        ports:
+          statsd:
+            port: 9125 # UDP/TCP Statsd receiving endpoint
+          prometheus:
+            port: 9102 # HTTP scrape endpoint for prometheus
+
+    persistence:
+      config:
+        enabled: true
+        type: configMap
+        name: statsd-configmap
+        subPath: mastodon-mapping.yaml
+        mountPath: /config/mastodon-mapping.yaml
+        readOnly: true
+
+    resources:
+      requests:
+        cpu: 15m
+        memory: 64M
