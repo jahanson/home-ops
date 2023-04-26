@@ -106,7 +106,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The total amount of HTTP Queries that Mastodon is serving.",
       "fieldConfig": {
@@ -158,7 +158,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -175,7 +175,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The total amount of SQL Queries that Mastodon is generating, split out in SELECT, DELETE, INSERT and UPDATE.",
       "fieldConfig": {
@@ -228,7 +228,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_count{operation=\"select\"}[5m]))",
@@ -239,7 +239,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_count{operation=\"insert\"}[5m]))",
@@ -251,7 +251,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_count{operation=\"update\"}[5m]))",
@@ -263,7 +263,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_count{operation=\"delete\"}[5m]))",
@@ -279,7 +279,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The running average latency of SQL Queries that Mastodon is generating, split out in SELECT, DELETE, INSERT and UPDATE.",
       "fieldConfig": {
@@ -345,7 +345,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_sum{operation=\"select\"}[$__rate_interval])) /\nsum by (operation) (rate(mastodon_db_operation_count{operation=\"select\"}[$__rate_interval]))",
@@ -356,7 +356,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_sum{operation=\"insert\"}[$__rate_interval])) /\nsum by (operation) (rate(mastodon_db_operation_count{operation=\"insert\"}[$__rate_interval]))",
@@ -368,7 +368,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_sum{operation=\"update\"}[$__rate_interval])) /\nsum by (operation) (rate(mastodon_db_operation_count{operation=\"update\"}[$__rate_interval]))",
@@ -380,7 +380,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum by (operation) (rate(mastodon_db_operation_sum{operation=\"delete\"}[$__rate_interval])) /\nsum by (operation) (rate(mastodon_db_operation_count{operation=\"delete\"}[$__rate_interval]))",
@@ -396,7 +396,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The total amount of Cache Queries that Mastodon is generating.",
       "fieldConfig": {
@@ -449,7 +449,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -466,7 +466,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The total amount of Cache Queries that Mastodon is generating.",
       "fieldConfig": {
@@ -532,7 +532,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -550,7 +550,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The total amount of worker jobs that Sidekiq is performing.",
       "fieldConfig": {
@@ -603,7 +603,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -616,7 +616,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -634,7 +634,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The total amount of worker jobs that Sidekiq is performing.",
       "fieldConfig": {
@@ -687,7 +687,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -701,7 +701,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -715,7 +715,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -729,7 +729,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -747,7 +747,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "gridPos": {
         "h": 5,
@@ -772,7 +772,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The running average latency of HTTP Queries that Mastodon is serving.",
       "fieldConfig": {
@@ -837,7 +837,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -854,7 +854,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "The running average latency of HTTP Queries that Mastodon is serving.",
       "fieldConfig": {
@@ -919,7 +919,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -946,7 +946,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Rate of queries/sec of API calls served by the Mastodon Webserver",
           "fieldConfig": {
@@ -1023,7 +1023,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (controller) (rate(mastodon_controller_duration_count{controller=~\"$puma_controller\"}[$__rate_interval]))",
@@ -1038,7 +1038,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Rate of response codes/sec of HTTP API calls served by the Mastodon Webserver",
           "fieldConfig": {
@@ -1115,7 +1115,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (status) (rate(mastodon_controller_status{controller=~\"$puma_controller\"}[$__rate_interval]))",
@@ -1130,7 +1130,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Current latency of API calls served by the Mastodon Webserver",
           "fieldConfig": {
@@ -1209,7 +1209,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (controller) (rate(mastodon_controller_duration_sum{controller=~\"$puma_controller\"}[$__rate_interval])) /\nsum by (controller) (rate(mastodon_controller_duration_count{controller=~\"$puma_controller\"}[$__rate_interval]))",
@@ -1224,7 +1224,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Rate of queries/sec of API calls served by the Mastodon Webserver, split out by action as well as controller.",
           "fieldConfig": {
@@ -1301,7 +1301,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (controller,action) (rate(mastodon_controller_duration_count{controller=~\"$puma_controller\",action=~\"$puma_action\"}[$__rate_interval]))",
@@ -1316,7 +1316,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Rate of response codes/sec of HTTP API calls served by the Mastodon Webserver",
           "fieldConfig": {
@@ -1393,7 +1393,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (status) (rate(mastodon_controller_status{action=~\"$puma_action\",controller=~\"$puma_controller\"}[$__rate_interval]))",
@@ -1408,7 +1408,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Current latency of API calls served by the Mastodon Webserver, split out by controller and action",
           "fieldConfig": {
@@ -1487,7 +1487,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (controller,action) (rate(mastodon_controller_duration_sum{controller=~\"$puma_controller\",action=~\"$puma_action\"}[$__rate_interval])) /\nsum by (controller,action) (rate(mastodon_controller_duration_count{controller=~\"$puma_controller\",action=~\"$puma_action\"}[$__rate_interval]))",
@@ -1502,7 +1502,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Rate of queries/sec of API calls served by the Mastodon Webserver, split out by action, format and controller.",
           "fieldConfig": {
@@ -1579,7 +1579,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (controller,action,format) (rate(mastodon_controller_duration_count{controller=~\"$puma_controller\",action=~\"$puma_action\",format=~\"$puma_format\"}[$__rate_interval]))",
@@ -1594,7 +1594,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Rate of response codes/sec of HTTP API calls served by the Mastodon Webserver",
           "fieldConfig": {
@@ -1671,7 +1671,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (status) (rate(mastodon_controller_status{action=~\"$puma_action\",format=~\"$puma_format\",controller=~\"$puma_controller\"}[$__rate_interval]))",
@@ -1686,7 +1686,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Current latency of API calls served by the Mastodon Webserver, split out by controller and action",
           "fieldConfig": {
@@ -1765,7 +1765,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (controller,action,format) (rate(mastodon_controller_duration_sum{controller=~\"$puma_controller\",action=~\"$puma_action\",format=~\"$puma_format\"}[$__rate_interval])) /\nsum by (controller,action,format) (rate(mastodon_controller_duration_count{controller=~\"$puma_controller\",action=~\"$puma_action\",format=~\"$puma_format\"}[$__rate_interval]))",
@@ -1794,7 +1794,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Total amount of SQL operations across Mastodon - operations are SELECT, INSERT, DELETE and UPDATE.",
           "fieldConfig": {
@@ -1872,7 +1872,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (operation) (rate(mastodon_db_operation_count{operation=~\"$sql_operation\"}[5m]))",
@@ -1887,7 +1887,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Running latency of SQL operations across Mastodon - operations are SELECT, INSERT, DELETE and UPDATE.",
           "fieldConfig": {
@@ -1969,7 +1969,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (operation) (rate(mastodon_db_operation_sum{operation=~\"$sql_operation\"}[$__rate_interval])) / \nsum by (operation) (rate(mastodon_db_operation_count{operation=~\"$sql_operation\"}[$__rate_interval]))",
@@ -1984,7 +1984,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The 90th percentile latency over all SELECT, INSERT, UPDATE and DELETE queries as seen by the client.",
           "fieldConfig": {
@@ -2042,7 +2042,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"select\"}>0)",
@@ -2053,7 +2053,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"insert\"}>0)",
@@ -2065,7 +2065,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"update\"}>0)",
@@ -2077,7 +2077,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"delete\"}>0)",
@@ -2093,7 +2093,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The 99th percentile latency over all SELECT, INSERT, UPDATE and DELETE queries as seen by the client.",
           "fieldConfig": {
@@ -2151,7 +2151,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"select\"}>0)",
@@ -2162,7 +2162,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"insert\"}>0)",
@@ -2174,7 +2174,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"update\"}>0)",
@@ -2186,7 +2186,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"delete\"}>0)",
@@ -2202,7 +2202,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Lefthand graph is the number of SQL statements per second, split by table",
           "fieldConfig": {
@@ -2280,7 +2280,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "rate(mastodon_db_operation_count{table=~\"$sql_table\",operation=~\"$sql_operation\"}[$__rate_interval])",
@@ -2295,7 +2295,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Lefthand graph is the latency of database operations specified by table",
           "fieldConfig": {
@@ -2373,7 +2373,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "rate(mastodon_db_operation_sum{table=~\"$sql_table\",operation=~\"$sql_operation\"}[$__rate_interval]) / \nrate(mastodon_db_operation_count{table=~\"$sql_table\",operation=~\"$sql_operation\"}[$__rate_interval])",
@@ -2388,7 +2388,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The 90th percentile latency over SELECT, INSERT, UPDATE and DELETE queries to the specified SQL Table as seen by the client.",
           "fieldConfig": {
@@ -2446,7 +2446,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"select\",table=~\"$sql_table\"}>0)",
@@ -2457,7 +2457,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"insert\",table=~\"$sql_table\"}>0)",
@@ -2469,7 +2469,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"update\",table=~\"$sql_table\"}>0)",
@@ -2481,7 +2481,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.9\",operation=\"delete\",table=~\"$sql_table\"}>0)",
@@ -2497,7 +2497,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The 99th percentile latency over SELECT, INSERT, UPDATE and DELETE queries to the specified SQL Table as seen by the client.",
           "fieldConfig": {
@@ -2555,7 +2555,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"select\",table=~\"$sql_table\"}>0)",
@@ -2566,7 +2566,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"insert\",table=~\"$sql_table\"}>0)",
@@ -2578,7 +2578,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"update\",table=~\"$sql_table\"}>0)",
@@ -2590,7 +2590,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_db_operation{quantile=\"0.99\",operation=\"delete\",table=~\"$sql_table\"}>0)",
@@ -2620,7 +2620,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Cache operations per second from the Mastodon service",
           "fieldConfig": {
@@ -2697,7 +2697,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (operation)(rate(mastodon_cache_duration_count{operation=~\"$cache_operation\"}[5m]))",
@@ -2712,7 +2712,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Cache latency from the Mastodon service",
           "fieldConfig": {
@@ -2791,7 +2791,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (operation)(rate(mastodon_cache_duration_sum{operation=~\"$cache_operation\"}[5m])) / \nsum by (operation)(rate(mastodon_cache_duration_count{operation=~\"$cache_operation\"}[5m]))",
@@ -2806,7 +2806,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The 90th percentile latency over cache operations that are not hits as seen by the client.",
           "fieldConfig": {
@@ -2864,7 +2864,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.9\",operation=\"read_miss\"}>0)",
@@ -2876,7 +2876,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.9\",operation=\"increment\"}>0)",
@@ -2888,7 +2888,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.9\",operation=\"write\"}>0)",
@@ -2900,7 +2900,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.9\",operation=\"generate\"}>0)",
@@ -2912,7 +2912,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.9\",operation=\"delete\"}>0)",
@@ -2928,7 +2928,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The 99th percentile latency over cache operations that are not hits as seen by the client.",
           "fieldConfig": {
@@ -2986,7 +2986,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.99\",operation=\"read_miss\"}>0)",
@@ -2998,7 +2998,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.99\",operation=\"increment\"}>0)",
@@ -3010,7 +3010,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.99\",operation=\"write\"}>0)",
@@ -3022,7 +3022,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.99\",operation=\"generate\"}>0)",
@@ -3034,7 +3034,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (operation) (mastodon_cache_duration{quantile=\"0.99\",operation=\"delete\"}>0)",
@@ -3064,7 +3064,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Rate of sidekiq worker invocations by worker type, split out by success and failure.",
           "fieldConfig": {
@@ -3142,7 +3142,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (worker)(rate(mastodon_sidekiq_worker_success_total{worker=~\"$sidekiq_worker\"}[$__rate_interval]))",
@@ -3153,7 +3153,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (worker)(rate(mastodon_sidekiq_worker_failure_total{worker=~\"$sidekiq_worker\"}[$__rate_interval]))",
@@ -3169,7 +3169,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "Running latency of sidekiq worker invocations by worker type.",
           "fieldConfig": {
@@ -3249,7 +3249,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sum by (worker)(rate(mastodon_sidekiq_worker_processing_time_sum{worker=~\"$sidekiq_worker\"}[$__rate_interval]))\n/ sum by (worker)(rate(mastodon_sidekiq_worker_processing_time_count{worker=~\"$sidekiq_worker\"}[$__rate_interval]))\n",
@@ -3264,7 +3264,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The median, 90th and 99th percentile latency over Sidekiq worker invocations.",
           "fieldConfig": {
@@ -3348,7 +3348,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (quantile)(mastodon_sidekiq_worker_processing_time{quantile=\"0.5\",worker=~\"$sidekiq_worker\"}>0)",
@@ -3360,7 +3360,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (quantile)(mastodon_sidekiq_worker_processing_time{quantile=\"0.9\",worker=~\"$sidekiq_worker\"}>0)",
@@ -3372,7 +3372,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "avg by (quantile)(mastodon_sidekiq_worker_processing_time{quantile=\"0.99\",worker=~\"$sidekiq_worker\"}>0)",
@@ -3389,7 +3389,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "A total number of worker jobs waiting in the queue, usually due to there not being enough worker threads or sidekiq jobs to handle them in time. This graph here shows the n-count of elements in the queue.",
           "fieldConfig": {
@@ -3450,7 +3450,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sort(sum by (queue)(mastodon_sidekiq_queue_enqueued))",
@@ -3465,7 +3465,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "A historical graph of the average queue delay for each of the main queues in Sidekiq. If the queues do not have wait-time, they are depicted green. They will go through yellow, orange and become red once the queue is backing up and worker jobs have to wait before being scheduled.",
           "fieldConfig": {
@@ -3519,7 +3519,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "expr": "sort(sum by (queue)(mastodon_sidekiq_queue_latency))",
@@ -3534,7 +3534,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "description": "The total amount of worker jobs that Sidekiq is performing.",
           "fieldConfig": {
@@ -3600,7 +3600,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -3630,7 +3630,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "mastodon_controller_duration_count",
         "hide": 0,
@@ -3653,7 +3653,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "mastodon_controller_duration_count",
         "hide": 0,
@@ -3676,7 +3676,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "mastodon_controller_duration_count",
         "hide": 0,
@@ -3699,7 +3699,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "mastodon_db_operation",
         "hide": 0,
@@ -3722,7 +3722,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "mastodon_db_operation",
         "hide": 0,
@@ -3745,7 +3745,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "mastodon_cache_duration_count",
         "hide": 0,
@@ -3768,7 +3768,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "PBFA97CFB590B2093"
         },
         "definition": "mastodon_sidekiq_worker_success_total",
         "hide": 0,
