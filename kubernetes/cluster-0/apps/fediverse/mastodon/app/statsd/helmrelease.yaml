@@ -30,10 +30,22 @@ spec:
     service:
       main:
         ports:
-          http:
-            port: 9102
           statsd:
             port: 9125
+            enabled: true
+            primary: true
+            protocol: TCP
+          statsd-udp:
+            port: 9125
+            enabled: true
+            primary: false
+            protocol: UDP
+          prom:
+            port: 9102
+            enabled: true
+            primary: false
+            protocol: UDP
+
 
     persistence:
       config:
