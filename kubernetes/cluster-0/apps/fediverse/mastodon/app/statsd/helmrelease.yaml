@@ -21,7 +21,7 @@ spec:
       annotations:
         reloader.stakater.com/auto: "true"
 
-    command: ["/bin/sh", "-c", "statsd_exporter --web.listen-address=:9125 --statsd.mapping-config=/config/mastodon-mapping.yaml"]
+    command: ["/bin/sh", "-c", "statsd_exporter --statsd.mapping-config=/config/mastodon-mapping.yaml"]
 
     image:
       repository: docker.io/prom/statsd-exporter
@@ -35,6 +35,11 @@ spec:
             enabled: true
             primary: true
             protocol: TCP
+          statsd-udp:
+            port: 9125
+            enabled: true
+            primary: false
+            protocol: UDP
           prom:
             port: 9102
             enabled: true
