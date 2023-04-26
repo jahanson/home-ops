@@ -34,6 +34,9 @@ spec:
             enabled: true
             primary: true
             protocol: TCP
+          api:
+            enabled: true
+            port: 9102
 
 
     persistence:
