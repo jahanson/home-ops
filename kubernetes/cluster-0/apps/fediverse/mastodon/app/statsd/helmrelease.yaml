@@ -27,24 +27,14 @@ spec:
       repository: docker.io/prom/statsd-exporter
       tag: v0.23.1
 
-    # service:
-    #   main:
-    #     ports:
-    #       statsd:
-    #         port: 9125
-    #         enabled: true
-    #         primary: true
-    #         protocol: TCP
-    #       statsd-udp:
-    #         port: 9125
-    #         enabled: true
-    #         primary: false
-    #         protocol: UDP
-    #       prom:
-    #         port: 9102
-    #         enabled: true
-    #         primary: false
-    #         protocol: HTTP
+    service:
+      main:
+        ports:
+          statsd:
+            port: 9125
+            enabled: true
+            primary: true
+            protocol: TCP
 
 
     persistence:
