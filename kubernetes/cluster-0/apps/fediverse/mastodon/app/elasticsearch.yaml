@@ -6,9 +6,6 @@ metadata:
   namespace: fediverse
 spec:
   version: 7.17.9
-  http:
-    enabled: true
-    port: 9200
   nodeSets:
     - name: default
       count: 1
