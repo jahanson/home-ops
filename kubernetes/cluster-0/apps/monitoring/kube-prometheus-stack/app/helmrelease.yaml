@@ -187,6 +187,13 @@ spec:
             static_configs:
               - targets:
                   - pg-exporter.database.svc.cluster.local:9187 # default zalando postgres cluster
+          - job_name: statsd-exporter
+            scrape_interval: 1m
+            scrape_timeout: 10s
+            honor_timestamps: true
+            static_configs:
+              - targets:
+                  - statsd-exporter.fediverse.svc.cluster.local:9102 # default zalando postgres cluster
 
         enableAdminAPI: true
         externalLabels:
