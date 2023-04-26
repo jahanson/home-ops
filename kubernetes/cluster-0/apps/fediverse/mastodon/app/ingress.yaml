@@ -1,3 +1,4 @@
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -9,23 +10,47 @@ metadata:
 spec:
   ingressClassName: "nginx"
   tls:
-  - hosts:
-    - social.hsn.dev
+    - hosts:
+        - &host social.hsn.dev
   rules:
-  - host: social.hsn.dev
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: mastodon-web
-            port:
-              number: 3000
-      - path: /api/v1/streaming
-        pathType: Prefix
-        backend:
-          service:
-            name: mastodon-streaming
-            port:
-              number: 4000
+    - host: *host
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mastodon-web
+                port:
+                  number: 3000
+          - path: /api/v1/streaming
+            pathType: Prefix
+            backend:
+              service:
+                name: mastodon-streaming
+                port:
+                  number: 4000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: elastic
+  namespace: fediverse
+  annotations:
+    nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - &host elastic.hsn.dev
+  rules:
+    - host: *host
+      http:
+        paths:
+          - backend:
+              service:
+                name: main-es-http
+                port:
+                  number: 9200
+            path: /
+            pathType: Prefix

@@ -2,35 +2,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: elastic
-  namespace: elastic
-  annotations:
-    nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: elastic.hsn.dev
-      http:
-        paths:
-          - backend:
-              service:
-                name: main-es-http
-                port:
-                  number: 9200
-            path: /
-            pathType: Prefix
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
   name: kibana
   namespace: elastic
   annotations:
     nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - &host kibana.hsn.dev
   rules:
-    - host: kibana.hsn.dev
+    - host: *host
       http:
         paths:
           - backend:
