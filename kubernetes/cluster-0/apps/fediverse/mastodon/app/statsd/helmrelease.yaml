@@ -44,7 +44,7 @@ spec:
             port: 9102
             enabled: true
             primary: false
-            protocol: UDP
+            protocol: HTTP
 
 
     persistence:
