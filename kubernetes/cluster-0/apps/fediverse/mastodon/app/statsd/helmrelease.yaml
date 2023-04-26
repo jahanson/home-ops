@@ -30,10 +30,10 @@ spec:
     service:
       main:
         ports:
+          http:
+            port: 9102
           statsd:
-            port: 9125 # UDP/TCP Statsd receiving endpoint
-          prometheus:
-            port: 9102 # HTTP scrape endpoint for prometheus
+            port: 9125
 
     persistence:
       config:
