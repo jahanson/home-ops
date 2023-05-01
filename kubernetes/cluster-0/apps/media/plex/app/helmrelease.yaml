@@ -75,8 +75,8 @@ spec:
     nodeSelector:
       feature.node.kubernetes.io/pci-0300_10de.present: "true"
       kubernetes.io/hostname:
-        - shadowfax
         - glamdring
+        # - shadowfax
 
     resources:
       requests:
