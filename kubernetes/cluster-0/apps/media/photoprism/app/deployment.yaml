@@ -53,6 +53,10 @@ spec:
           nfs:
             server: nas.jahanson.tech
             path: /volume1/Media/Photos
+        - name: nfs-import
+          nfs:
+            server: nas.jahanson.tech
+            path: /volume1/Media/temp
       runtimeClassName: nvidia
       nodeSelector:
         feature.node.kubernetes.io/pci-0300_10de.present: "true"
