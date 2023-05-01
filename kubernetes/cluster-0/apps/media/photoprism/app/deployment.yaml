@@ -56,4 +56,4 @@ spec:
       runtimeClassName: nvidia
       nodeSelector:
         feature.node.kubernetes.io/pci-0300_10de.present: "true"
-        kubernetes.io/hostname: "glamdring"
+        kubernetes.io/hostname: "shadowfax"
