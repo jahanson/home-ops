@@ -45,6 +45,8 @@ spec:
               mountPath: /photoprism/storage
             - name: nfs-originals
               mountPath: /photoprism/originals
+            - name: nfs-import
+              mountPath: /photoprism/import
       volumes:
         - name: photoprism-storage
           persistentVolumeClaim:
