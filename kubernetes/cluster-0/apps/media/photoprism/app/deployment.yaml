@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photoprism
+  namespace: media
+spec:
+  selector:
+    matchLabels:
+      app: photoprism
+  template:
+    metadata:
+      annotations:
+        reloader.stakater.com/auto: "true"
+      labels:
+        app: photoprism
+    spec:
+      containers:
+        - name: photoprism
+          image: docker.io/photoprism/photoprism
+          tag: preview
+          imagePullPolicy: IfNotPresent
+          workingDir: /photoprism
+          tty: true
+          envFrom:
+            - secretRef:
+                name: photoprism-secret
+          runtimeClassName: nvidia
+          nodeSelector:
+            feature.node.kubernetes.io/pci-0300_10de.present: "true"
+            kubernetes.io/hostname: "glamdring"
+
+          resources:
+            requests:
+              cpu: 100m
+              nvidia.com/gpu: 1
+              memory: 4282M
+            limits:
+              cpu: 2000m
+              nvidia.com/gpu: 1
+              memory: 12G
+          ports:
+            - name: http
+              containerPort: 2342
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: http
+          volumeMounts:
+            - name: photoprism-storage
+              mountPath: /photoprism/storage
+            - name: nfs-imported
+              mountPath: /photoprism/originals
+              nfs:
+                server: nas.jahanson.tech
+                path: /volume1/Media/Photos
