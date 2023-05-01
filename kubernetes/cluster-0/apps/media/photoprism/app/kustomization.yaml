@@ -6,6 +6,7 @@ resources:
   - ./deployment.yaml
   - ./externalsecret.yaml
   - ./ingress.yaml
+  - ./pvc.yaml
   - ./service.yaml
   - ./volsync.yaml
 commonLabels:

@@ -17,19 +17,13 @@ spec:
     spec:
       containers:
         - name: photoprism
-          image: docker.io/photoprism/photoprism
-          tag: preview
+          image: docker.io/photoprism/photoprism:preview
           imagePullPolicy: IfNotPresent
           workingDir: /photoprism
           tty: true
           envFrom:
             - secretRef:
                 name: photoprism-secret
-          runtimeClassName: nvidia
-          nodeSelector:
-            feature.node.kubernetes.io/pci-0300_10de.present: "true"
-            kubernetes.io/hostname: "glamdring"
-
           resources:
             requests:
               cpu: 100m
@@ -51,14 +45,15 @@ spec:
               mountPath: /photoprism/storage
             - name: nfs-originals
               mountPath: /photoprism/originals
-              nfs:
-                server: nas.jahanson.tech
-                path: /volume1/Media/Photos
-      volumeClaimTemplates:
+      volumes:
         - name: photoprism-storage
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 30Gi
-          storageClassName: ceph-block
+          persistentVolumeClaim:
+            claimName: photoprism-storage
+        - name: nfs-originals
+          nfs:
+            server: nas.jahanson.tech
+            path: /volume1/Media/Photos
+      runtimeClassName: nvidia
+      nodeSelector:
+        feature.node.kubernetes.io/pci-0300_10de.present: "true"
+        kubernetes.io/hostname: "glamdring"
