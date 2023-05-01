@@ -23,4 +23,4 @@ spec:
     # Node Selector for the DaemonSet
     nodeSelector:
       feature.node.kubernetes.io/pci-0300_10de.present: "true"
-      kubernetes.io/hostname: "glamdring"
+      modernnvidia: "true"
