@@ -74,15 +74,17 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: "2048M"
+        memory: 1381M
         nvidia.com/gpu: 1
       limits:
+        cpu: 93m
+        memory: 5628M
         nvidia.com/gpu: 1
 
     runtimeClassName: nvidia
     nodeSelector:
       feature.node.kubernetes.io/pci-0300_10de.present: "true"
-      kubernetes.io/hostname: "glamdring"
+      modernnvidia: "true"
 
     volumeClaimTemplates:
       - name: config
