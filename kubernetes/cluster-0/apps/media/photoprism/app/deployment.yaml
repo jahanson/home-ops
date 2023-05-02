@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: photoprism
-          image: docker.io/photoprism/photoprism:preview@sha256:b14c7cf1e187d0afd1f9aa6d12f48032a02bdd86071c83afad5430261109512e
+          image: docker.io/photoprism/photoprism:preview@sha256:1276384c0319221d31507ea827a53dfb65629bd80838e8f53e86521e2faccff8
           imagePullPolicy: IfNotPresent
           workingDir: /photoprism
           tty: true
