@@ -14,6 +14,9 @@ spec:
     kind: GitRepository
     name: home-ops-kubernetes
   wait: true
+  dependsOn:
+    - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-redis
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -30,6 +33,9 @@ spec:
     kind: GitRepository
     name: home-ops-kubernetes
   wait: true
+  dependsOn:
+    - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-redis
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -46,6 +52,9 @@ spec:
     kind: GitRepository
     name: home-ops-kubernetes
   wait: true
+  dependsOn:
+    - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-redis
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -62,6 +71,9 @@ spec:
     kind: GitRepository
     name: home-ops-kubernetes
   wait: true
+  dependsOn:
+    - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-redis
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
