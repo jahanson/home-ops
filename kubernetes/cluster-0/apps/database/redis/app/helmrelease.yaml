@@ -34,9 +34,23 @@ spec:
         role: master
       persistence:
         enabled: false
+      resources:
+        requests:
+          cpu: 34m
+          memory: 93M
+        limits:
+          cpu: 155m
+          memory: 415M
     replica:
       persistence:
         enabled: false
+      resources:
+        requests:
+          cpu: 34m
+          memory: 93M
+        limits:
+          cpu: 155m
+          memory: 415M
     sentinel:
       enabled: true
       masterSet: redis-master
