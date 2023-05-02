@@ -29,7 +29,10 @@ spec:
       resources:
         requests:
           cpu: 15m
-          memory: 64M
+          memory: 110M
+        limits:
+          cpu: 45m
+          memory: 460M
         # limits:
         #   memory: 99M
 
@@ -49,8 +52,9 @@ spec:
         requests:
           cpu: 15m
           memory: 64M
-        # limits:
-        #   memory: 64M
+        limits:
+          cpu: 45m
+          memory: 152M
 
     compactor:
       enabled: true
@@ -63,9 +67,10 @@ spec:
       resources:
         requests:
           cpu: 15m
-          memory: 204M
-        # limits:
-        #   memory: 270M
+          memory: 1162M
+        limits:
+          cpu: 96m
+          memory: 4901M
       persistence:
         enabled: true
         storageClass: "ceph-block"
@@ -75,10 +80,11 @@ spec:
       enabled: true
       resources:
         requests:
-          cpu: 23m
-          memory: 204M
-        # limits:
-        #   memory: 226M
+          cpu: 15m
+          memory: 78M
+        limits:
+          cpu: 45m
+          memory: 328M
       persistence:
         enabled: true
         storageClass: "ceph-block"
@@ -103,10 +109,11 @@ spec:
         size: 512Mi
       resources:
         requests:
-          cpu: 23m
-          memory: 94M
+          cpu: 15m
+          memory: 110M
         limits:
-          memory: 113M
+          cpu: 46m
+          memory: 466M
 
     metrics:
       enabled: true

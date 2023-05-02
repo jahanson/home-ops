@@ -152,11 +152,12 @@ spec:
       pspEnabled: false
 
     resources:
-      limits:
-        memory: 219M
       requests:
-        cpu: 23m
-        memory: 127M
+        cpu: 22m
+        memory: 203M
+      limits:
+        cpu: 146m
+        memory: 852M
 
     serviceMonitor:
       enabled: true

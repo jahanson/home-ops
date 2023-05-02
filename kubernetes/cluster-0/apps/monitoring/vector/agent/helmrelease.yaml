@@ -93,10 +93,11 @@ spec:
 
     resources:
       requests:
-        cpu: 23m
-        memory: 249M
-      # limits:
-      #   memory: 918M
+        cpu: 15m
+        memory: 915M
+      limits:
+        cpu: 96m
+        memory: 8G
 
     securityContext:
       privileged: true
