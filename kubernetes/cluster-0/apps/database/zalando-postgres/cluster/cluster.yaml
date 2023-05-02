@@ -29,12 +29,12 @@ spec:
           containerPort: 9187
           protocol: TCP
       resources:
-        limits:
-          cpu: 500m
-          memory: 256M
         requests:
-          cpu: 100m
-          memory: 200M
+          cpu: 10m
+          memory: 32M
+        limits:
+          cpu: 50m
+          memory: 109M
       env:
         - name: "DATA_SOURCE_URI"
           value: "postgres-ext.database.svc.cluster.local/postgres"

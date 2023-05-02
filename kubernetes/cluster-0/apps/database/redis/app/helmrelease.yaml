@@ -45,8 +45,22 @@ spec:
         failureThreshold: 2
       persistence:
         enabled: false
+      resources:
+        requests:
+          cpu: 22m
+          memory: 24M
+        limits:
+          cpu: 160m
+          memory: 109M
     metrics:
       enabled: true
       serviceMonitor:
         enabled: true
         interval: 1m
+      resources:
+        requests:
+          cpu: 10m
+          memory: 24M
+        limits:
+          cpu: 105m
+          memory: 109M

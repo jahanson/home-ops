@@ -89,3 +89,10 @@ spec:
         mountPath: /usr/local/etc/haproxy/haproxy.cfg
         subPath: haproxy.cfg
         readOnly: true
+    resources:
+      requests:
+        cpu: 15m
+        memory: 64M
+      limits:
+        cpu: 50m
+        memory: 228M
