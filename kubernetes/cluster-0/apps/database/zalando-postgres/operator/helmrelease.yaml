@@ -40,7 +40,7 @@ spec:
     # configure resource requests for the Postgres pods
     configPostgresPodResources:
       # CPU limits for the postgres containers
-      default_cpu_limit: "105m"
+      default_cpu_limit: "250m"
       # CPU request value for the postgres containers
       default_cpu_request: "20m"
       # memory limits for the postgres containers
