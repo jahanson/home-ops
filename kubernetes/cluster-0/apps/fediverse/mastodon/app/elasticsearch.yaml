@@ -22,11 +22,11 @@ spec:
             - name: elasticsearch
               resources:
                 requests:
-                  memory: 4Gi
-                  cpu: 2
-                # limits:
-                #   memory: 4Gi
-                #   cpu: 3
+                  cpu: 62m
+                  memory: 4G
+                limits:
+                  cpu: 342m
+                  memory: 8G
       volumeClaimTemplates:
         - metadata:
             name: elasticsearch-data # Do not change this name unless you set up a volume mount for the data path.
