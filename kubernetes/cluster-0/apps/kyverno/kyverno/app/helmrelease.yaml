@@ -46,7 +46,7 @@ spec:
         cpu: 92m
         memory: 271M
       limits:
-        cpu: 743m
+        cpu: 852m
         memory: 1322M
 
     topologySpreadConstraints:
