@@ -26,6 +26,3 @@ spec:
       requests:
         cpu: 15m
         memory: 182M
-      limits:
-        cpu: 50m
-        memory: 841M
