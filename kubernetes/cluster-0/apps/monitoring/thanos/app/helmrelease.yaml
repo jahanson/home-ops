@@ -82,9 +82,6 @@ spec:
         requests:
           cpu: 15m
           memory: 78M
-        limits:
-          cpu: 45m
-          memory: 328M
       persistence:
         enabled: true
         storageClass: "ceph-block"
