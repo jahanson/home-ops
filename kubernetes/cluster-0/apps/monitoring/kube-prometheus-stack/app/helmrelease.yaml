@@ -73,7 +73,7 @@ spec:
           memory: 64M
         limits:
           cpu: 46m
-          memory: 209M
+          memory: 409M
 
     nodeExporter:
       enabled: false
