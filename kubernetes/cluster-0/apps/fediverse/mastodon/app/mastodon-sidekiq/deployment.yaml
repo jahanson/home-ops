@@ -52,9 +52,6 @@ spec:
             requests:
               cpu: 48m
               memory: 972M
-            limits:
-              cpu: 1078m
-              memory: 4273M
       volumes:
         - name: system
           persistentVolumeClaim:
