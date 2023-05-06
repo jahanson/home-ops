@@ -1,0 +1,7 @@
+---
+ingress:
+  - hostname: "*.hsn.dev"
+    service: https://ingress-nginx-controller.network.svc.cluster.local:443
+    originRequest:
+      originServerName: ingress.hsn.dev
+  - service: http_status:404
