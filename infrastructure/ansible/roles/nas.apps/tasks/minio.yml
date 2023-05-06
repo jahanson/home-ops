@@ -1,6 +1,6 @@
 ---
 - name: "Minio : Fetch secrets from 1Password"
-  delegate_to: 1pwconnect.hsn.dev
+  delegate_to: http://onepassword-connect.hsn.dev:8080
   onepassword.connect.item_info:
     vault: hsn.dev
     item: Minio
