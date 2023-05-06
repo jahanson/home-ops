@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: sync-time
+  namespace: system
+spec:
+  selector:
+    matchLabels:
+      app: sync-time
+  template:
+    metadata:
+      labels:
+        app: sync-time
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: sync-time
+          image: ghcr.io/onedr0p/alpine:3.17.3@sha256:999384960b6114496a5e4036e945141c205d064ce23b87326bd3f8d878c5a9d4
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: sync-script-configmap
+              mountPath: /opt/chrony-run.sh
+              subPath: chrony-run.sh
+          resources: {}
+          command:
+            [
+              "/bin/sh",
+              "-c"
+            ]
+          args:
+            - apk add --no-cache chrony;cp /opt/chrony-run.sh /opt/chrony.sh;chmod +x /opt/chrony.sh;
+              /opt/chrony.sh
+      volumes:
+        - name: sync-script-configmap
+          configMap:
+            name: sync-script-configmap
+            items:
+              - key: chrony-run.sh
+                path: chrony-run.sh
