@@ -36,7 +36,7 @@ spec:
       main:
         type: LoadBalancer
         annotations:
-          coredns.io/hostname: redis.hsn.dev
+          external-dns.alpha.kubernetes.io/hostname: redis.hsn.dev
         externalIPs: ["10.45.0.25"]
         externalTrafficPolicy: Local
         ports:

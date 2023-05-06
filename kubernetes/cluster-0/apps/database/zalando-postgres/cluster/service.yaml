@@ -5,7 +5,7 @@ metadata:
   name: postgres-ext
   namespace: database
   annotations:
-    coredns.io/hostname: "postgres-zalando.hsn.dev"
+    external-dns.alpha.kubernetes.io/hostname: "postgres-zalando.hsn.dev"
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
