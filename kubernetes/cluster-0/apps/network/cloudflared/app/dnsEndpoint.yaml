@@ -10,4 +10,4 @@ spec:
   endpoints:
     - dnsName: ingress.hsn.dev
       recordType: CNAME
-      targets: ["a005cb4f-369d-438a-af1e-dc7b2d3675a1.cfargotunnel.com"]
+      targets: ["a38b545f-c568-4b6e-9b9e-11ac913684e4.cfargotunnel.com"]
