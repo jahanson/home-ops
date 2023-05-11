@@ -1,6 +1,5 @@
 ---
 - name: "Minio : Fetch secrets from 1Password"
-  delegate_to: http://onepassword-connect.hsn.dev:8080
   onepassword.connect.item_info:
     vault: hsn.dev
     item: Minio
@@ -35,6 +34,11 @@
       TZ: "America/Chicago"
       MINIO_ROOT_USER: "{{ op_item_minio.op_item.fields.username.value }}"
       MINIO_ROOT_PASSWORD: "{{ op_item_minio.op_item.fields.password.value }}"
+      MINIO_API_CORS_ALLOW_ORIGIN: "https://minio.hsn.dev,https://s3.hsn.dev"
+      MINIO_BROWSER_REDIRECT_URL: "https://minio.hsn.dev"
+      MINIO_SERVER_URL: "https://s3.hsn.dev"
+      MINIO_UPDATE: "off"
+
     published_ports:
       - 9000:9000
       - 9001:9001
