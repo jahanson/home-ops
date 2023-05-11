@@ -35,7 +35,7 @@
       MINIO_ROOT_USER: "{{ op_item_minio.op_item.fields.username.value }}"
       MINIO_ROOT_PASSWORD: "{{ op_item_minio.op_item.fields.password.value }}"
       MINIO_API_CORS_ALLOW_ORIGIN: "https://minio.hsn.dev,https://s3.hsn.dev"
-      MINIO_BROWSER_REDIRECT_URL: "https://minio.hsn.dev"
+      MINIO_BROWSER_REDIRECT_URL: "http://10.1.1.11:9001"
       MINIO_SERVER_URL: "https://s3.hsn.dev"
       MINIO_UPDATE: "off"
 
