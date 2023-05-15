@@ -99,7 +99,7 @@ controlPlane:
             op: create
         kubelet:
           extraArgs:
-            feature-gates: GracefulNodeShutdown=true
+            feature-gates: GracefulNodeShutdown=true,NewVolumeManagerReconstruction=false
             rotate-server-certificates: "true"
         install:
           extraKernelArgs:
