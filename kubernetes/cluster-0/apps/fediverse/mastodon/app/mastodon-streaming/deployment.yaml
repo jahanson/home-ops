@@ -21,6 +21,20 @@ spec:
         app: mastodon
         component: streaming
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - mastodon
+                  - key: component
+                    operator: In
+                    values:
+                      - streaming
+              topologyKey: kubernetes.io/hostname
       containers:
         - name: mastodon-streaming
           image: ghcr.io/mastodon/mastodon:v4.1.2@sha256:6b18e6d0eda476397d48cc36ac040b5da9c73503e374708a815a7f76db740576
