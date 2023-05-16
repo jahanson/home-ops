@@ -8,6 +8,10 @@
     "github>jahanson/home-ops//.github/renovate/disabledDatasources.json5",
     "github>jahanson/home-ops//.github/renovate/groups.json5",
   ],
+  "platform": "github",
+  "username": "jahanson-bot[bot]",
+  "gitAuthor": "jahanson-bot <132467671+jahanson-bot[bot]@users.noreply.github.com>",
+  "repositories": ["jahanson/home-ops"],
   "flux": {
     "fileMatch": ["kubernetes/.+\\.ya?ml$"]
   },
