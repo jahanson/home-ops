@@ -2,7 +2,7 @@
 clusterName: cluster-0
 
 talosVersion: v1.4.4
-kubernetesVersion: 1.27.1
+kubernetesVersion: 1.26.1
 endpoint: "https://cluster-0.jahanson.tech:6443"
 
 cniConfig:
