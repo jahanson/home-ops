@@ -21,7 +21,6 @@ spec:
         app: mastodon
         component: web
     spec:
-      spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
