@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: "nginx"
   rules:
-    - host: &host "flux-receiver-${CLUSTER_NAME}.hsn.dev"
+    - host: &host "flux-receiver-cluster-0.hsn.dev"
       http:
         paths:
           - path: /hook/
