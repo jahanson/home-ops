@@ -38,9 +38,9 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: 10.45.0.26
         annotations:
           external-dns.alpha.kubernetes.io/hostname: frigate-rtsp.hsn.dev
+          metallb.universe.tf/loadBalancerIPs: "10.45.0.26"
         ports:
           http:
             port: &port 5000

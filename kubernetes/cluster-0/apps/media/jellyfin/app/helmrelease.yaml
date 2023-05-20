@@ -48,7 +48,8 @@ spec:
       main:
         type: LoadBalancer
         externalTrafficPolicy: Local
-        loadBalancerIP: 10.45.0.21
+        annotations:
+          metallb.universe.tf/loadBalancerIPs: "10.45.0.21"
         ports:
           http:
             port: 8096
@@ -81,4 +82,3 @@ spec:
       transcode:
         enabled: true
         type: emptyDir
-

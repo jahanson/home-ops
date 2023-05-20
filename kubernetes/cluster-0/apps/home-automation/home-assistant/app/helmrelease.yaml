@@ -42,6 +42,10 @@ spec:
 
     service:
       main:
+        type: LoadBalancer
+        annotations:
+          metallb.universe.tf/loadBalancerIPs: "10.45.0.5"
+        externalTrafficPolicy: Local
         ports:
           http:
             port: 8123
