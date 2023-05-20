@@ -20,6 +20,10 @@ spec:
     configMajorVersionUpgrade:
       # "off": no upgrade, "manual": manifest triggers action, "full": minimal version violation triggers too
       major_version_upgrade_mode: full
+    configPatroni:
+      # enable Patroni DCS failsafe_mode feature
+      enable_patroni_failsafe_mode: false
+
 
     configKubernetes:
       enable_pod_antiaffinity: true
