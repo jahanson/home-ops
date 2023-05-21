@@ -37,7 +37,7 @@ spec:
         type: LoadBalancer
         annotations:
           external-dns.alpha.kubernetes.io/hostname: redis.hsn.dev
-        externalIPs: ["10.45.0.25"]
+          metallb.universe.tf/loadBalancerIPs: 10.45.0.25
         externalTrafficPolicy: Local
         ports:
           http:
