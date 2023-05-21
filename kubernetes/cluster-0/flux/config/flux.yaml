@@ -23,6 +23,10 @@ spec:
   sourceRef:
     kind: OCIRepository
     name: flux-manifests
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   patches:
     - patch: |
         $patch: delete
