@@ -16,57 +16,54 @@ additionalMachineCertSans:
   - cluster-0.jahanson.tech
 
 nodes:
-  - hostname: gandalf.jahanson.tech
+  - hostname: nenya.jahanson.tech
     disableSearchDomain: true
-    ipAddress: 10.1.1.31
+    ipAddress: 10.1.1.41
     controlPlane: true
-    installDisk: /dev/sdg
+    installDisk: /dev/sda
+    nameserver: 10.1.1.1
     networkInterfaces:
       - interface: eth0
-        dhcp: false
+        dhcp: true
         vlans:
           - vlanId: 10
             dhcp: true
             addresses:
-              - 10.1.1.31/24
+              - 10.1.1.41/24
           - vlanId: 40
             dhcp: false
             addresses:
               - 10.1.3.141/24
-  - hostname: glamdring.jahanson.tech
+  - hostname: vilya.jahanson.tech
     disableSearchDomain: true
-    ipAddress: 10.1.1.32
+    ipAddress: 10.1.1.42
     controlPlane: true
-    installDisk: /dev/nvme1n1
+    installDisk: /dev/sda
     networkInterfaces:
       - interface: eth0
-        dhcp: false
+        dhcp: true
         vlans:
           - vlanId: 10
             dhcp: true
             addresses:
-              - 10.1.1.32/24
+              - 10.1.1.42/24
           - vlanId: 40
             dhcp: false
             addresses:
               - 10.1.3.142/24
-  - hostname: shadowfax.jahanson.tech
+  - hostname: narya.jahanson.tech
     disableSearchDomain: true
-    ipAddress: 10.1.1.33
+    ipAddress: 10.1.1.43
     controlPlane: true
-    installDisk: /dev/nvme0n1
+    installDisk: /dev/sda
     networkInterfaces:
-      - interface: bond0
-        dhcp: false
-        bond:
-          deviceSelectors:
-            - hardwareAddr: '04:42:1a:*'
-          mode: 802.3ad
+      - interface: eth0
+        dhcp: true
         vlans:
           - vlanId: 10
             dhcp: true
             addresses:
-              - 10.1.1.33/24
+              - 10.1.1.43/24
           - vlanId: 40
             dhcp: false
             addresses:
@@ -100,10 +97,6 @@ controlPlane:
           extraArgs:
             feature-gates: GracefulNodeShutdown=true
             rotate-server-certificates: "true"
-        install:
-          extraKernelArgs:
-            - "talos.logging.kernel=udp://vector.hsn.dev:6050/"
-            - cpufreq.default_governor=performance
         logging:
           destinations:
             - endpoint: "udp://vector.hsn.dev:6051/"
