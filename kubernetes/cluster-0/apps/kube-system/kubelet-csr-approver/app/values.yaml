@@ -1,0 +1,5 @@
+---
+providerRegex: |
+  ^(nenya|vilya|narya)$
+
+bypassDnsResolution: true
