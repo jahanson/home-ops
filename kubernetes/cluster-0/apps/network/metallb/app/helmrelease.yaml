@@ -19,13 +19,13 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
-    prometheus:
-      serviceAccount: "kube-prometheus-stack-prometheus"
-      namespace: "monitoring"
-      serviceMonitor:
-        enabled: true
-      prometheusRule:
-        enabled: true
+    # prometheus:
+    #   serviceAccount: "kube-prometheus-stack-prometheus"
+    #   namespace: "monitoring"
+    #   serviceMonitor:
+    #     enabled: true
+    #   prometheusRule:
+    #     enabled: true
 
     speaker:
       frr:
