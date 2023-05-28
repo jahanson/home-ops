@@ -90,13 +90,13 @@ spec:
         nodes:
           - name: "nenya"
             devices:
-              - name: "/dev/sdb"
+              - name: "/dev/nvme0n1"
           - name: "vilya"
             devices:
-              - name: "/dev/sdb"
+              - name: "/dev/nvme0n1"
           - name: "narya"
             devices:
-              - name: "/dev/sdb"
+              - name: "/dev/nvme0n1"
 
     ingress:
       ingressClassName: "nginx"
