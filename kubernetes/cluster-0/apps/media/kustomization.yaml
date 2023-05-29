@@ -8,7 +8,7 @@ resources:
   # - ./bonob/ks.yaml
   # - ./calibre-web/ks.yaml
   # - ./gonic/ks.yaml
-  - ./jellyfin/ks.yaml
+  # - ./jellyfin/ks.yaml
   - ./photoprism/ks.yaml
   - ./plex/ks.yaml
   # - ./series-cleanup/ks.yaml
