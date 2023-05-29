@@ -14,7 +14,7 @@ spec:
       resources: {}
       env:
         - name: CEPH_DISK
-          value: /dev/sdb
+          value: "/dev/nvme0n1"
       command:
         [
           "/bin/sh",
@@ -51,7 +51,7 @@ spec:
       resources: {}
       env:
         - name: CEPH_DISK
-          value: /dev/sdb
+          value: "/dev/nvme0n1"
       command:
         [
           "/bin/sh",
@@ -88,7 +88,7 @@ spec:
       resources: {}
       env:
         - name: CEPH_DISK
-          value: /dev/sdb
+          value: "/dev/nvme0n1"
       command:
         [
           "/bin/sh",
