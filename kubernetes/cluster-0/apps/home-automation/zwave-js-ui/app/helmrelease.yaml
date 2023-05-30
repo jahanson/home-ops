@@ -90,7 +90,8 @@ spec:
         hostPathType: CharDevice
         mountPath: /dev/ttyUSB0
     nodeSelector:
-      kubernetes.io/hostname: "glamdring" # Until I can get node feature discovery working with Zooz ZST10 700
+      # Node feature discovery for Zooz ZST10 700 Z-Wave Stick
+      feature.node.kubernetes.io/usb-ff_10c4_ea60.present: "true"
     resources:
       requests:
         cpu: 10m
