@@ -71,7 +71,7 @@ nodes:
   - hostname: nahar.jahanson.tech
     disableSearchDomain: true
     ipAddress: 10.1.1.44
-    controlPlane: true
+    controlPlane: false
     installDisk: /dev/sda
     networkInterfaces:
       - interface: eth0
