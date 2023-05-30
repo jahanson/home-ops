@@ -68,6 +68,23 @@ nodes:
             dhcp: false
             addresses:
               - 10.1.3.144/24
+  - hostname: nahar.jahanson.tech
+    disableSearchDomain: true
+    ipAddress: 10.1.1.44
+    controlPlane: true
+    installDisk: /dev/sda
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+        vlans:
+          - vlanId: 10
+            dhcp: true
+            addresses:
+              - 10.1.1.44/24
+          - vlanId: 40
+            dhcp: false
+            addresses:
+              - 10.1.3.143/24
 
 controlPlane:
   patches:
