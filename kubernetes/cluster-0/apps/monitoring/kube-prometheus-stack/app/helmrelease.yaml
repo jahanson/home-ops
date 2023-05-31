@@ -86,7 +86,7 @@ spec:
           cpu: 15m
           memory: 64M
         limits:
-          cpu: 46m
+          # cpu: 46m
           memory: 409M
 
     nodeExporter:
