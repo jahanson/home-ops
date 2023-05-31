@@ -14,7 +14,6 @@ spec:
         name: grafana
         namespace: flux-system
       interval: 30m
-      timeout: 10m
   values:
     loki:
       structuredConfig:
