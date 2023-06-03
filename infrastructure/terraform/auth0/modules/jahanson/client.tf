@@ -11,6 +11,7 @@ resource "auth0_client" "default" {
     "https://status.hsn.dev/authorization-code/callback",   # Gatus
     "https://kubenav.io/auth/oidc.html",                    # Kubenav
     "https://gitops.hsn.dev/oauth2/callback",               # Weave-Gitops
+    "https://grafana.valinor.social/login/generic_oauth"    # Grafana - Valinor
   ]
 
   client_aliases       = []
