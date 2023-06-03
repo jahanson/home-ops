@@ -107,10 +107,8 @@ spec:
     prometheusOperator:
       resources:
         requests:
-          cpu: 15m
           memory: 271M
         limits:
-          cpu: 45m
           memory: 1138M
 
       prometheusConfigReloader:
