@@ -68,7 +68,6 @@ spec:
         resources:
           requests:
             cpu: 247m
-            memory: 443M
 
       topologySpreadConstraints:
         - maxSkew: 1
