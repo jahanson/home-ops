@@ -5,8 +5,8 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./chrony-sync/ks.yaml
   - ./descheduler/ks.yaml
-  # - ./intel-device-plugins/ks.yaml
   - ./nvidia-device-plugin/ks.yaml
   - ./node-feature-discovery/ks.yaml
   - ./reloader/ks.yaml
