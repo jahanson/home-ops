@@ -20,7 +20,7 @@ spec:
       type: s3
     receive:
       enabled: true
-      extraFlags: ["--label \"receive_cluster=\"valinor\"\"", "--label \"receive_replica=\"0\"\""]
+      extraFlags: ["--label receive_cluster=valinor", "--label receive_replica=0"]
       resources:
         requests:
           cpu: 15m
