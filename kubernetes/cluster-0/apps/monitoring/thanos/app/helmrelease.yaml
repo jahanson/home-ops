@@ -18,7 +18,18 @@ spec:
   values:
     objstoreConfig:
       type: s3
-
+    receive:
+      enabled: true
+      resources:
+        requests:
+          cpu: 15m
+          memory: 64M
+        limits:
+          cpu: 45m
+          memory: 152M
+      service:
+        type: LoadBalancer
+        loadBalancerIP: "10.45.0.30"
     query:
       enabled: true
       dnsDiscovery:
