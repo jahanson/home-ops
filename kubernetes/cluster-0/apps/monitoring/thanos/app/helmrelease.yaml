@@ -20,6 +20,9 @@ spec:
       type: s3
     receive:
       enabled: true
+      podLabels:
+        - receive_replica=0
+        - receive_cluster=valinor
       resources:
         requests:
           cpu: 15m
@@ -30,6 +33,7 @@ spec:
       service:
         type: LoadBalancer
         loadBalancerIP: "10.45.0.30"
+
     query:
       enabled: true
       dnsDiscovery:
