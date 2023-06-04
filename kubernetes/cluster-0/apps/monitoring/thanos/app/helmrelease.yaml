@@ -20,9 +20,6 @@ spec:
       type: s3
     receive:
       enabled: true
-      podLabels:
-        receive_replica: 0
-        receive_cluster: valinor
       resources:
         requests:
           cpu: 15m
