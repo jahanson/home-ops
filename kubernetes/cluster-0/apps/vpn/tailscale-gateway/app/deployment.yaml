@@ -28,10 +28,11 @@ spec:
             - name: TS_USERSPACE
               value: "true"
             - name: TS_ROUTES
-              value: "10.244.0.0/16,10.1.1.0/24,10.96.0.0/12"
+              value: "10.244.0.0/16,10.1.1.0/24,10.96.0.0/12,10.45.0.0/16"
               # 10.244.0.0/16 pod cidr
               # 10.1.1.0/24 host cidr
               # 10.96.0.0/12 service cidr
+              # 10.45.0.0/16 'external-ip' cidr
             - name: TS_EXTRA_ARGS
               value: "--advertise-exit-node --accept-routes"
           envFrom:
