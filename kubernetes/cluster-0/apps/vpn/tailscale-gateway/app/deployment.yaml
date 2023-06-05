@@ -19,14 +19,10 @@ spec:
           imagePullPolicy: Always
           image: "ghcr.io/tailscale/tailscale:v1.42.0"
           env:
-            - name: TZ
-              value: "America/Los_Angeles"
             - name: TS_KUBE_SECRET
               value: "tailscale-state"
-            - name: SA_NAME
-              value: tailscale
             - name: TS_USERSPACE
-              value: "true"
+              value: "false"
             - name: TS_ROUTES
               value: "10.244.0.0/16,10.1.1.0/24,10.96.0.0/12,10.45.0.0/16"
               # 10.244.0.0/16 pod cidr
@@ -46,5 +42,6 @@ spec:
               cpu: 100m
               memory: 128Mi
           securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
+            capabilities:
+              add:
+                - NET_ADMIN
