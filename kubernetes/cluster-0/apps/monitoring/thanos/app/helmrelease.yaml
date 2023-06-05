@@ -20,6 +20,9 @@ spec:
       type: s3
     receive:
       enabled: true
+      service:
+        type: LoadBalancer
+        LoadBalancerIP: 10.45.0.30
       resources:
         requests:
           cpu: 15m
@@ -27,35 +30,6 @@ spec:
         limits:
           cpu: 45m
           memory: 152M
-      sidecars:
-        - name: tailscale
-          imagePullPolicy: Always
-          image: "ghcr.io/tailscale/tailscale:v1.42.0"
-          env:
-            - name: TZ
-              value: "America/Los_Angeles"
-            - name: TS_KUBE_SECRET
-              value: "tailscale-state"
-            - name: SA_NAME
-              value: tailscale
-            - name: TS_USERSPACE
-              value: "false"
-            - name: TS_EXTRA_ARGS
-              value: "--accept-routes"
-          envFrom:
-            - secretRef:
-                name: tailscale-auth
-          resources:
-            requests:
-              cpu: 100m
-              memory: 50Mi
-            limits:
-              cpu: 100m
-              memory: 128Mi
-          securityContext:
-            capabilities:
-              add:
-                - NET_ADMIN
     query:
       enabled: true
       dnsDiscovery:
