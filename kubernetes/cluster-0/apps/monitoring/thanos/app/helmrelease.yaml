@@ -22,7 +22,7 @@ spec:
       enabled: true
       service:
         type: LoadBalancer
-        LoadBalancerIP: 10.45.0.30
+        loadBalancerIP: 10.45.0.30
       resources:
         requests:
           cpu: 15m
