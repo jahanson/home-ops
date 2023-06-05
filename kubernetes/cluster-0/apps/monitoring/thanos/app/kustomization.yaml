@@ -5,4 +5,5 @@ namespace: monitoring
 resources:
   - ./helmrelease.yaml
   - ./externalsecret.yaml
+  - ./rbac.yaml
   - ./dashboard
