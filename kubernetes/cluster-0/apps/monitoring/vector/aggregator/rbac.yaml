@@ -23,6 +23,9 @@ subjects:
   - kind: ServiceAccount
     name: "tailscale"
     namespace: monitoring
+  - kind: ServiceAccount
+    name: "vector-aggregator"
+    namespace: monitoring
 roleRef:
   kind: Role
   name: tailscale

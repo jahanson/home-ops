@@ -107,3 +107,6 @@ spec:
         labelSelector:
           matchLabels:
             app.kubernetes.io/name: vector-aggregator
+    serviceAccount:
+      create: true
+      name: vector-aggregator
