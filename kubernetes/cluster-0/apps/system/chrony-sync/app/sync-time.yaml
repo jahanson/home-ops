@@ -13,6 +13,15 @@ spec:
       labels:
         app: sync-time
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: NotIn
+                    values:
+                      - "nahar"
       restartPolicy: Always
       containers:
         - name: sync-time
