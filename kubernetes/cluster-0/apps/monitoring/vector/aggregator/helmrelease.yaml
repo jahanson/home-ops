@@ -34,7 +34,7 @@ spec:
     sidecars:
       tailscale:
         imagePullPolicy: Always
-        image: "ghcr.io/tailscale/tailscale:v1.42.0"
+        image: "ghcr.io/tailscale/tailscale:v1.42.0@sha256:f59fdba09b893af232c527b38c6016324f98aad14871628cffda147d02ca3112"
         env:
           - name: TS_KUBE_SECRET
             value: "tailscale-state-vector-aggregator"
