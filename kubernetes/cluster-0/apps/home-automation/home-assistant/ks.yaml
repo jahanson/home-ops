@@ -16,5 +16,4 @@ spec:
   wait: true
   dependsOn:
     - name: cluster-apps-multus
-    - name: cluster-apps-ext-postgres-operator
     - name: cluster-apps-external-secrets-stores
