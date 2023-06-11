@@ -34,13 +34,6 @@ spec:
           "ips": ["10.1.3.151/24"]
         }]
 
-    env:
-      SECRET_RECORDER_DB_URL:
-        valueFrom:
-          secretKeyRef:
-            name: database-home-assistant-user
-            key: POSTGRES_URL
-
     envFrom:
       - secretRef:
           name: home-assistant-secret
@@ -68,17 +61,6 @@ spec:
         tls:
           - hosts:
               - *host
-
-    persistence:
-      deploy-key:
-        enabled: true
-        type: secret
-        name: home-assistant-secret
-        defaultMode: 256
-        subPath:
-          - path: GH_DEPLOY_KEY
-            mountPath: /root/.ssh/id_rsa
-
     probes:
       liveness:
         enabled: false
