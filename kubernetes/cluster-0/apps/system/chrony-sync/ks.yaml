@@ -5,7 +5,7 @@ metadata:
   name: cluster-apps-chrony-sync
   namespace: flux-system
   labels:
-    substitution.flux.home.arpa/enabled: "true"
+    substitution.flux.home.arpa/enabled: "false"
     kustomize.toolkit.fluxcd.io/substitute: disabled
 spec:
   interval: 10m
