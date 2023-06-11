@@ -101,11 +101,6 @@ spec:
         name: qbittorrent-configmap
         mountPath: "-"
 
-      data:
-        enabled: true
-        existingClaim: qbittorrent-config
-        mountPath: /config/qBittorrent/data
-
       media:
         enabled: true
         type: nfs
@@ -119,3 +114,10 @@ spec:
         memory: 1227M
       limits:
         memory: 3426M
+
+    volumeClaimTemplates:
+      - name: data
+        mountPath: /config/qBittorrent/data
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: ceph-block
