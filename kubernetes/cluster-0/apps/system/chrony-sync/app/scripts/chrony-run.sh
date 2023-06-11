@@ -23,17 +23,17 @@ fi
   echo "# located at /opt/startup.sh"
   echo
   echo "# time servers provided by NTP_SERVER environment variables."
-} > ${CHRONY_CONF_FILE}
+} > $CHRONY_CONF_FILE
 
-if [ -z "${NTP_SERVERS}" ]; then
-  NTP_SERVERS="${DEFAULT_NTP}"
+if [ -z "$NTP_SERVERS" ]; then
+  NTP_SERVERS="$DEFAULT_NTP"
 fi
 
 # chrony log levels: 0 (informational), 1 (warning), 2 (non-fatal error) and 3 (fatal error)
-if [ -z "${LOG_LEVEL}" ]; then
+if [ -z "$LOG_LEVEL" ]; then
   LOG_LEVEL=0
 else
-  if [ "${LOG_LEVEL}" -gt 3 ]; then
+  if [ "$LOG_LEVEL" -gt 3 ]; then
 
     LOG_LEVEL=0
   fi
@@ -42,13 +42,13 @@ fi
 IFS=","
 for N in $NTP_SERVERS; do
 
-  N_CLEANED=${N//\"}
+  N_CLEANED=$N//\"
 
-  if [[ "${N_CLEANED}" == *"127\."* ]]; then
-    echo "server "${N_CLEANED}" minpoll 0 maxpoll 1" >> ${CHRONY_CONF_FILE}
-    echo "local stratum 10"    >> ${CHRONY_CONF_FILE}
+  if [[ "$N_CLEANED" == *"127\."* ]]; then
+    echo "server "$N_CLEANED" minpoll 0 maxpoll 1" >> $CHRONY_CONF_FILE
+    echo "local stratum 10"    >> $CHRONY_CONF_FILE
   else
-    echo "server "${N_CLEANED}" minpoll 0 maxpoll 1 iburst" >> ${CHRONY_CONF_FILE}
+    echo "server "$N_CLEANED" minpoll 0 maxpoll 1 iburst" >> $CHRONY_CONF_FILE
   fi
 done
 
@@ -59,6 +59,6 @@ done
   echo "rtcsync"
   echo
   echo "allow all"
-} >> ${CHRONY_CONF_FILE}
+} >> $CHRONY_CONF_FILE
 
-exec /usr/sbin/chronyd -u chrony -d -L ${LOG_LEVEL}
+exec /usr/sbin/chronyd -u chrony -d -L $LOG_LEVEL

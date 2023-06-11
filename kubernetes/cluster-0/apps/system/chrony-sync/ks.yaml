@@ -5,8 +5,7 @@ metadata:
   name: cluster-apps-chrony-sync
   namespace: flux-system
   labels:
-    substitution.flux.home.arpa/enabled: "false"
-    kustomize.toolkit.fluxcd.io/substitute: disabled
+    substitution.flux.home.arpa/enabled: "true"
 spec:
   interval: 10m
   path: "./kubernetes/cluster-0/apps/system/chrony-sync/app"
