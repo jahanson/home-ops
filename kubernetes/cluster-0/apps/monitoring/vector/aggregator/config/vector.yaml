@@ -26,6 +26,11 @@ sources:
     address: 0.0.0.0:6002
     version: "2"
 
+  nginx_valinor_source:
+    type: vector
+    address: 0.0.0.0:6003
+    version: "2"
+
 # Transformations
 transforms:
   kubernetes_remap:
