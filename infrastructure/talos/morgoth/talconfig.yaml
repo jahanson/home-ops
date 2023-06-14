@@ -119,6 +119,7 @@ controlPlane:
           advertisedSubnets:
             - 10.1.1.0/24
         extraManifests:
+          - https://raw.githubusercontent.com/jahanson/home-ops/main/infrastructure/talos/morgoth/integrations/cni/cilium.yaml
           - https://raw.githubusercontent.com/jahanson/home-ops/main/infrastructure/talos/morgoth/integrations/kubelet-csr-approver/kubelet-csr-approver.yaml
     - |-
       machine:
