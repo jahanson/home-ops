@@ -6,4 +6,3 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./pod-gateway/ks.yaml
-  - ./tailscale-gateway/ks.yaml
