@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: system
 resources:
   - ./helmrelease.yaml
-  - ./prometheusrule.yaml
+  # - ./prometheusrule.yaml
