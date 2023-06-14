@@ -1,9 +1,9 @@
 ---
-clusterName: cluster-0
+clusterName: morgoth
 
-talosVersion: v1.4.4
-kubernetesVersion: 1.26.1
-endpoint: "https://cluster-0.jahanson.tech:6443"
+talosVersion: v1.4.5
+kubernetesVersion: 1.27.2
+endpoint: "https://morgoth.jahanson.tech:6443"
 
 cniConfig:
   name: none
@@ -13,13 +13,53 @@ additionalApiServerCertSans:
 
 additionalMachineCertSans:
   - ${clusterEndpointIP}
-  - cluster-0.jahanson.tech
+  - morgoth.jahanson.tech
 
 nodes:
+  - hostname: galadriel.jahanson.tech
+    disableSearchDomain: true
+    ipAddress: 10.1.1.61
+    controlPlane: true
+    installDisk: /dev/sda
+    nameserver: 10.1.1.1
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+        vlans:
+          - vlanId: 10
+            dhcp: true
+            addresses:
+              - 10.1.1.61/24
+  - hostname: elrond.jahanson.tech
+    disableSearchDomain: true
+    ipAddress: 10.1.1.62
+    controlPlane: true
+    installDisk: /dev/sda
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+        vlans:
+          - vlanId: 10
+            dhcp: true
+            addresses:
+              - 10.1.1.62/24
+  - hostname: cirdan.jahanson.tech
+    disableSearchDomain: true
+    ipAddress: 10.1.1.63
+    controlPlane: true
+    installDisk: /dev/sda
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+        vlans:
+          - vlanId: 10
+            dhcp: true
+            addresses:
+              - 10.1.1.63/24
   - hostname: nenya.jahanson.tech
     disableSearchDomain: true
     ipAddress: 10.1.1.41
-    controlPlane: true
+    controlPlane: false
     installDisk: /dev/sda
     nameserver: 10.1.1.1
     networkInterfaces:
@@ -37,7 +77,7 @@ nodes:
   - hostname: vilya.jahanson.tech
     disableSearchDomain: true
     ipAddress: 10.1.1.42
-    controlPlane: true
+    controlPlane: false
     installDisk: /dev/sda
     networkInterfaces:
       - interface: eth0
@@ -54,7 +94,7 @@ nodes:
   - hostname: narya.jahanson.tech
     disableSearchDomain: true
     ipAddress: 10.1.1.43
-    controlPlane: true
+    controlPlane: false
     installDisk: /dev/sda
     networkInterfaces:
       - interface: eth0
@@ -68,67 +108,46 @@ nodes:
             dhcp: false
             addresses:
               - 10.1.3.144/24
-  - hostname: nahar.jahanson.tech
-    disableSearchDomain: true
-    ipAddress: 10.1.1.44
-    controlPlane: false
-    installDisk: /dev/sda
-    networkInterfaces:
-      - interface: eth0
-        dhcp: true
-        vlans:
-          - vlanId: 10
-            dhcp: true
-            addresses:
-              - 10.1.1.44/24
-          - vlanId: 40
-            dhcp: false
-            addresses:
-              - 10.1.3.143/24
-
 controlPlane:
   patches:
     - |-
       cluster:
-        allowSchedulingOnMasters: true
-        apiServer:
-        controllerManager:
-        discovery:
-          registries:
-            service:
-              disabled: true
+        allowSchedulingOnMasters: false
         proxy:
           disabled: true
-        scheduler:
-
+        etcd:
+          advertisedSubnets:
+            - 10.1.1.0/24
+        extraManifests:
+          - https://raw.githubusercontent.com/jahanson/home-ops/main/infrastructure/talos/morgoth/integrations/kubelet-csr-approver/kubelet-csr-approver.yaml
+    - |-
       machine:
         files:
-          - content: |
+          - op: create
+            path: /etc/cri/conf.d/20-customization.part
+            content: |
               [plugins]
                 [plugins."io.containerd.grpc.v1.cri"]
                   enable_unprivileged_ports = true
                   enable_unprivileged_icmp = true
-            path: /etc/cri/conf.d/20-customization.part
-            op: create
         kubelet:
           extraArgs:
-            feature-gates: GracefulNodeShutdown=true
+            feature-gates: CronJobTimeZone=true,GracefulNodeShutdown=true,NewVolumeManagerReconstruction=false
             rotate-server-certificates: "true"
-        logging:
-          destinations:
-            - endpoint: "udp://vector.hsn.dev:6051/"
-              format: json_lines
+          extraConfig:
+            maxPods: 150
         network:
           extraHostEntries:
             - ip: ${clusterEndpointIP}
               aliases:
-                - cluster-0.jahanson.tech
+                - morgoth.jahanson.tech
         sysctls:
           fs.inotify.max_user_watches: "1048576"
           fs.inotify.max_user_instances: "8192"
         time:
-          disabled: true
-
+          disabled: false
+          servers:
+            - 10.1.1.1
     - |-
       - op: remove
         path: /cluster/apiServer/admissionControl
