@@ -22,15 +22,6 @@ spec:
 
   values:
     hubble:
-      metrics:
-        serviceMonitor:
-          enabled: true
-
-      relay:
-        prometheus:
-          serviceMonitor:
-            enabled: true
-
       ui:
         ingress:
           enabled: true
@@ -38,16 +29,21 @@ spec:
             nginx.ingress.kubernetes.io/whitelist-source-range: 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           className: "nginx"
           hosts:
-            - &host hubble-morgoth.hsn.dev
+            - &host hubble-cluster-0.hsn.dev
           tls:
             - hosts:
                 - *host
-
-    prometheus:
-      serviceMonitor:
-        enabled: true
-
-    operator:
-      prometheus:
-        serviceMonitor:
-          enabled: true
+    #   metrics:
+    #     serviceMonitor:
+    #       enabled: true
+    #   relay:
+    #     prometheus:
+    #       serviceMonitor:
+    #         enabled: true
+    # prometheus:
+    #   serviceMonitor:
+    #     enabled: true
+    # operator:
+    #   prometheus:
+    #     serviceMonitor:
+    #       enabled: true

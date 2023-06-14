@@ -31,8 +31,8 @@ spec:
           csi.storage.k8s.io/snapshotter-secret-name: rook-csi-rbd-provisioner
           csi.storage.k8s.io/snapshotter-secret-namespace: rook-ceph
         deletionPolicy: Delete
-    serviceMonitor:
-      create: true
+    # serviceMonitor:
+    #   create: true
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease

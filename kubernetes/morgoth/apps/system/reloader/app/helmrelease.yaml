@@ -16,17 +16,13 @@ spec:
         namespace: flux-system
       interval: 30m
   values:
-    reloader:
-      podMonitor:
-        enabled: true
+    reloadStrategy: annotations
 
-      reloadStrategy: annotations
-
-      deployment:
-        resources:
-          requests:
-            cpu: 15m
-            memory: 1304M
-          limits:
-            cpu: 45m
-            memory: 5456M
+    deployment:
+      resources:
+        requests:
+          cpu: 15m
+          memory: 1304M
+        limits:
+          cpu: 45m
+          memory: 5456M

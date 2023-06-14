@@ -51,15 +51,15 @@ spec:
           http:
             port: 8080
 
-    serviceMonitor:
-      main:
-        enabled: true
-        endpoints:
-          - port: http
-            scheme: http
-            path: /metrics
-            interval: 1m
-            scrapeTimeout: 30s
+    # serviceMonitor:
+    #   main:
+    #     enabled: true
+    #     endpoints:
+    #       - port: http
+    #         scheme: http
+    #         path: /metrics
+    #         interval: 1m
+    #         scrapeTimeout: 30s
 
     probes:
       liveness:

@@ -86,11 +86,11 @@ hubble:
     # -- Roll out Hubble Relay pods automatically when configmap is updated.
     rollOutPods: true
 
-  serviceMonitor:
-    # -- Create ServiceMonitor resources for Prometheus Operator.
-    # This requires the prometheus CRDs to be available.
-    # ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml)
-    enabled: false
+  # serviceMonitor:
+  #   # -- Create ServiceMonitor resources for Prometheus Operator.
+  #   # This requires the prometheus CRDs to be available.
+  #   # ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml)
+  #   enabled: false
 
   ui:
     # -- Whether to enable the Hubble UI.

@@ -48,8 +48,8 @@ spec:
       limits:
         memory: 48M
 
-    serviceMonitor:
-      enabled: true
+    # serviceMonitor:
+    #   enabled: true
 
     sources:
       - ingress

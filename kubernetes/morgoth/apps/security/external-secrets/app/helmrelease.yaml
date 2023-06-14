@@ -24,15 +24,15 @@ spec:
     # serviceMonitor:
     #   enabled: true
     #   interval: 1m
-    backgroundController:
-      serviceMonitor:
-        enabled: true
-        interval: 1m
-    cleanupController:
-      serviceMonitor:
-        enabled: true
-        interval: 1m
-    reportsController:
-      serviceMonitor:
-        enabled: true
-        interval: 1m
+    # backgroundController:
+    #   serviceMonitor:
+    #     enabled: true
+    #     interval: 1m
+    # cleanupController:
+    #   serviceMonitor:
+    #     enabled: true
+    #     interval: 1m
+    # reportsController:
+    #   serviceMonitor:
+    #     enabled: true
+    #     interval: 1m
