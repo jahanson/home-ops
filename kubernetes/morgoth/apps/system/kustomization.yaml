@@ -7,5 +7,6 @@ resources:
   # Flux-Kustomizations
   - ./descheduler/ks.yaml
   - ./node-feature-discovery/ks.yaml
+  - ./nvidia-device-plugin/ks.yaml
   - ./reloader/ks.yaml
   - ./volsync/ks.yaml

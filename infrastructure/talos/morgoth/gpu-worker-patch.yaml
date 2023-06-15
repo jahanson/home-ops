@@ -1,7 +1,7 @@
 - op: add
   path: /machine/install/extensions
   value:
-    - image: ghcr.io/siderolabs/nvidia-container-toolkit:515.65.01-v1.11.0
+    - image: ghcr.io/siderolabs/nvidia-container-toolkit:530.41.03-v1.12.1
 - op: add
   path: /machine/kernel
   value:
