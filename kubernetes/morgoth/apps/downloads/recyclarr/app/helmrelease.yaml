@@ -40,7 +40,7 @@ spec:
 
     image:
       repository: ghcr.io/recyclarr/recyclarr
-      tag: edge@sha256:6ddd404da777a85c5f6608738758529635ef0b1c3fce644cb7e9614c2c5c164e
+      tag: edge@sha256:d6fc020b4910f8d8526c9b0224f1c6e07e30feca35aa70fbbba523104ad374bc
 
     envFrom:
       - secretRef:
