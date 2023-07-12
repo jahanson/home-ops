@@ -21,7 +21,7 @@ apps:
 
   minio:
     # renovate: docker-image
-    image: quay.io/minio/minio:RELEASE.2023-07-07T07-13-57Z
+    image: quay.io/minio/minio:RELEASE.2023-07-11T21-29-34Z
     data_folder: /volume1/docker/minio/data
 
   node_exporter:
